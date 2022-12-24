@@ -50,11 +50,31 @@
         <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#div2">collapseable content</button>
         <script src="test 2.js"></script>
     </div>
-    <ul class="nav nav-pills">
-      <li class="nav-item"><a href="#" class="nav-link">link</a></li>
-      <li class="nav-item"><a href="#" class="nav-link active">link</a></li>
+    <ul class="nav nav-tabs nav-justified">
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">dropdown</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" class="dropdown-item">LINK</a></li>
+          <li><a href="#" class="dropdown-item">LINK</a></li>
+          <li><a href="#" class="dropdown-item">LINK</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="#" class="nav-link active">link active</a></li>
       <li class="nav-item"><a href="#" class="nav-link">link</a></li>
       <li class="nav-item"><a href="#" class="nav-link disabled">link disabled</a></li>
+    </ul>
+    <br>
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="#" class="nav-link active">Active</a></li>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" class="dropdown-item">LINK</a></li>
+          <li><a href="#" class="dropdown-item">LINK</a></li>
+          <li><a href="#" class="dropdown-item">LINK</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="#" class="nav-link disabled">Disable</a></li>
     </ul>
   </body>
 </html
