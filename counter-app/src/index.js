@@ -44,4 +44,4 @@ root.render(<Counter />);
 /* in the above code onClick att. calls an arrow function which calls the setCount which then updates the count variable 
 and that triggers the setCalculation to render variables*/
 
-//there may be some mistakes I made here, I'm new to this :p
+//there may be some mistakes I made here, I'm new to this.
