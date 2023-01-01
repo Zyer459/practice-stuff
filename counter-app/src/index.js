@@ -8,14 +8,27 @@ import Counter from './components/counter';
 import { useState } from 'react';
 
 function FavouriteColor () {
-  const [color, setColor] = useState("red");
+  const [car, setColor] = useState({
+    brand: "Ford",
+    model: "Mustang",
+    year: 1964,
+    color: "red"
+  });
+
+  const UpdateColor = () => {
+    setColor(previousState => {
+      return {...previousState, color: "blue" }
+    });
+  }
 
   return (
     <>
-    <h1>My favourite color is {color}!</h1>
+    <h1>My favourite is a {car.color} {car.brand}, {car.model} </h1>
     <button
     type="button"
-    onClick={() => setColor("blue")}>Blue
+    onClick={UpdateColor}
+    class="btn btn-outline-primary">
+    Blue
     </button>
     </>
   )
