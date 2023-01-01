@@ -12,12 +12,12 @@ function FavouriteColor () {
     brand: "Ford",
     model: "Mustang",
     year: 1964,
-    color: "red"
+    color: "color ?"
   });
 
-  const UpdateColor = () => {
-    setColor(previousState => {
-      return {...previousState, color: "blue" }
+  const UpdateColor = (a) => {
+    setColor((previousState) => {
+      return {...previousState, color: a.target.innerHTML}
     });
   }
 
@@ -26,9 +26,23 @@ function FavouriteColor () {
     <h1>My favourite is a {car.color} {car.brand}, {car.model} </h1>
     <button
     type="button"
-    onClick={UpdateColor}
+    onClick={(a) => UpdateColor(a)}
     class="btn btn-outline-primary">
     Blue
+    </button>
+
+    <button
+    type="button"
+    onClick={(a) => UpdateColor(a)}
+    class="btn btn-outline-success">
+      Green
+    </button>
+
+    <button
+    type="button"
+    onClick={(a) => UpdateColor(a)}
+    class="btn btn-outline-danger">
+      Red
     </button>
     </>
   )
