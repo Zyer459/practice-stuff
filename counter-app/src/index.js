@@ -19,7 +19,7 @@ function Timer () {
     setTimeout(() => {
       setCount(count => count+1);
     }, 1000)
-  });
+  }, []);// <-- add empty array as dependency parameter to auto render only once 
   return (
     <h1>I've rendered count {count} times</h1>
   )
