@@ -23,7 +23,7 @@ function App () {
   const count = useRef(0); {/**here, value inside useRef(0) is the .current property of the count obj */}
 
   useEffect (() => {
-    count.current = count.current + 1;
+    count.current = count.current + 1;{/**here useEffect updates count.current value & renders it*/}
   });
 
   return (
@@ -34,6 +34,7 @@ function App () {
     onChange={(x) => setInput(x.target.value)}
     />
     <h1>Render count: {count.current}</h1>
+    {/**on-line 34 useState changes + render the value of input */}
     </>
   )
 }
