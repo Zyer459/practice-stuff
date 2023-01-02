@@ -12,36 +12,32 @@ such as fetch data, directly update DOM, timers
 useEffect takes 2 arguments, 2nd on is optional
 useEffect(<function>, <dependency>)*/
 
-/*useState & useEffect are functions*/
+/*useState & useEffect are functions which manipulate values and renders everytime values are changed*/
 
 /* the code below uses only 1 dependency
 if there are multiple dependencies they should be included in the useEffect dependency array*/
 
-function Counter () {
-  const [count, setCount] = useState(0);// <-- set value of count variable to 0 && setCount updates count value everytime it is called
-  const [calculation, setCalculation] = useState(0);// <-- set value of calculation variable to 0 && setCalculation updates calculation value
+/* EFFECT CLEANUP
+some effects need to reduce memory leaks
+timeouts, subscriptions, event listeners and other unnecessary effects should be disposed
+do this (cleanup) by including a return function at the end of the useEffect hook*/
+
+function Timer () {
+  const [count, setCount] = useState(0);
 
   useEffect (() => {
-    setCalculation (() => count * 2);
-  }, [count]) //<-- add count variable here as dependency parameter(2nd parameter) of useEffect hook && renders when count value changes
+    let timer = setTimeout (() => {
+      setCount (count => count + 1)
+    }, 1000);
 
-  return (
-    <>
-    <h1>Count: {count}</h1>
-    <h1>Calculation: {calculation}</h1>
-    <button
-    type="button"
-    onClick={() => setCount((c) => c + 1)}
-    class="btn btn-dark">
-    +
-    </button>
-    </>
-  )
+    return () => clearTimeout (timer)
+  }, [])
+  return <h1>I've rendered count {count} times!</h1>
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Counter />);
+root.render(<Timer />);
 
-/* in the above code onClick att. calls an arrow function which calls the setCount which then updates the count variable 
-and that triggers the setCalculation to render variables*/
+/* in the above code useEffect renders only once because of an empty array as its 2nd parameter.
+And the return calls a function that clears the timer variable (which contains the setTimeout function)*/
 
 //there may be some mistakes I made here, I'm new to this.
