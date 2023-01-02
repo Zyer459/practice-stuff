@@ -11,30 +11,23 @@ import { useState, useEffect, useRef } from 'react';
  * can be used to access a DOM element directly
 */
 
-/**(1)DOES NOT CAUSE RE-RENDER
- * if we try to count how many times the app renders using useState hook, 
- * we wiil be caught in an infinite loop, because this hook itself causes a re-render
- * To avoid this we can use a useRef hook
- */
-// use useRef to track app renders
+/**(2)ACCESSING DOM ELEMENTS
+ * generally let React handle all DOM manipulations
+ * but there are some places/instances where we can use 'useRef' without any issues.
+ * In React, we can add a 'ref' attribute to an element to access it directly in the DOM.
+*/
+// use useRef to focus the input
 
 function App () {
-  const [input, setInput] = useState(""); {/**here, value inside useState("empty string") is the value of input & setInput is a function to update(when called) the input value */}
-  const count = useRef(0); {/**here, value inside useRef(0) is the .current property of the count obj */}
-
-  useEffect (() => {
-    count.current = count.current + 1;{/**here useEffect updates count.current value & renders it*/}
-  });
+  const input = useRef();
+  const focusInput = () => {
+    input.current.focus();
+  };
 
   return (
     <>
-    <input
-    type="text"
-    value={input}
-    onChange={(x) => setInput(x.target.value)}
-    />
-    <h1>Render count: {count.current}</h1>
-    {/**on-line 34 useState changes + render the value of input */}
+    <input type="text" ref={input}/>
+    <button onClick={focusInput}>Focus input</button>
     </>
   )
 }
@@ -43,9 +36,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render (<App />)
 
 /**note: the useRef() returns only 1 item an object with its object.current property
- * when useRef is initialized & set the inital value: useRef(0),
- * it really works like this > const count = {current: 0}.
- * then access the value by using count.current.
+ * in above code to focus the input we usually click on it, but
+ * with useRef & using 'ref' attribute to call the hook on the element we want to focus, and
+ * adding a button element which render the focus
+ * finally we can select/access(focus) the input element by clicking on the button as well as on the input field
+ * and it works directly in the DOM
 */
 
 //there may be some mistakes I made here, I'm new to this.
