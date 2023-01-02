@@ -38,6 +38,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Timer />);
 
 /* in the above code useEffect renders only once because of an empty array as its 2nd parameter.
-And the return calls a function that clears the timer variable (which contains the setTimeout function)*/
+And the return calls a function that clears the timer variable (which contains the setTimeout function)
+NOTE to clear timer I had to name it*/
 
 //there may be some mistakes I made here, I'm new to this.
