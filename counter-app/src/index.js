@@ -11,23 +11,29 @@ import { useState, useEffect, useRef } from 'react';
  * can be used to access a DOM element directly
 */
 
-/**(2)ACCESSING DOM ELEMENTS
- * generally let React handle all DOM manipulations
- * but there are some places/instances where we can use 'useRef' without any issues.
- * In React, we can add a 'ref' attribute to an element to access it directly in the DOM.
+/**(3)TRACKING STATE CHANGES
+ * the useRef hook can be used to keep track of previous state values
+ * this is because we are able to persist(keep) useRef values between renders
 */
-// use useRef to focus the input
+// use useRef to keep track of previous state values
 
 function App () {
-  const input = useRef();
-  const focusInput = () => {
-    input.current.focus();
-  };
+  const [input, setInput] = useState("");
+  const previousInput = useRef("");
+
+  useEffect (() => {
+    previousInput.current = input;
+  }, [input]);
 
   return (
     <>
-    <input type="text" ref={input}/>
-    <button onClick={focusInput}>Focus input</button>
+    <input
+    type="text"
+    value={input}
+    onChange={(x) => setInput(x.target.value)}
+    />
+    <h1>Current value: {input}</h1>
+    <h2>Previous value: {previousInput.current}</h2>
     </>
   )
 }
@@ -35,12 +41,11 @@ function App () {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render (<App />)
 
-/**note: the useRef() returns only 1 item an object with its object.current property
- * in above code to focus the input we usually click on it, but
- * with useRef & using 'ref' attribute to call the hook on the element we want to focus, and
- * adding a button element which render the focus
- * finally we can select/access(focus) the input element by clicking on the button as well as on the input field
- * and it works directly in the DOM
+/**in above code 
+ * input & setInput is tracked & updated by useState
+ * previousInput value is tracked by useRef & updated + rendered by useEffect hook
+ * used a combination of useState, useEffect & useRef to keep track of previous state
+ * In the useEffect, we are updating the useRef current value each time the inputValue is updated by entering text into the input field.
 */
 
 //there may be some mistakes I made here, I'm new to this.
