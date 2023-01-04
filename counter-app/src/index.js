@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 //import Counter from './components/counter';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useMemo} from 'react';
 import Todos from "./Todos";
 
 /** THE INFO IS SIMILAR WITH SMALL CHANGES
@@ -20,14 +20,20 @@ import Todos from "./Todos";
  * When changing the count or adding a todo, you will notice a delay in execution.
  */
 
-/** EXAMPLE
- * A poor performing function. The expensiveCalculation function runs on every render:
+/** SOLUTION
+ * to fix the performance issue, we can use the useMemo hook to memoize the expensiveCalculation function
+ * this will cause the function only run when needed
+ * 
+ * We can wrap the expensive function call with useMemo
+ * The useMemoHook accepts a second parameter to declare dependencies
+ * The expensive function will only run when its dependencies have changed
+ * In the following example, the expensive function will only run when count is changed and not when todo's are added.
 */
 
 const App = () => {
   const [count, setCount] = useState(0);
   const [todos, setTodos] = useState([]);
-  const calculation = expensiveCalculation(count);
+  const calculation = useMemo(() => expensiveCalculation(count), [count]);
 
   const increment = () => {
     setCount((c) => c + 1);
@@ -68,9 +74,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render (<App />)
 
 /** open the console on browser and click on any of the 2 buttons (Add Todo/+)
- * you will see that it takes a lot of time to render the updated values in both cases
- * but this delay should only happen when (+) button is clicked and not when (Add Todo) button is clicked <-- correction: the expensive calculation takes count as parameter hence the change
- * so the resource expensive component is running needlessly when it shouldn't
+ * you will see that it takes a lot of time to render the increment (+) button
+ * but less time to render AddTodo button
+ * just wrap the resource expensive function within a useMemo hook & give it a 2nd (dependency) parameter
 */
 
 //there may be some mistakes I made here, I'm new to this.
