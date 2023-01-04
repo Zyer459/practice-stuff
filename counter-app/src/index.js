@@ -46,11 +46,11 @@ const App = () => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render (<App />)
 
-/** try running the increment button
+/** open the console in browser & try running the increment button
  * you'll notice that the <Todos> component re-renders even when the todos do not change (only the count variable value changes)
  * Why does this not work? 
  * We are using memo, so the Todos component should not re-render since...
- *  neither the todos state nor the addTodo function are changing when the count is incremented.
+ * neither the todos state nor the addTodo function are changing when the count is incremented(the + button).
  * This is because of something called "referential equality".
  * Every time a component re-renders, its functions get recreated.
  * Because of this, the addTodo function has actually changed.
