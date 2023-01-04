@@ -69,7 +69,7 @@ root.render (<App />)
 
 /** open the console on browser and click on any of the 2 buttons (Add Todo/+)
  * you will see that it takes a lot of time to render the updated values in both cases
- * but this delay should only happen when (Add Todo) button is clicked and not when (+) button is clicked
+ * but this delay should only happen when (+) button is clicked and not when (Add Todo) button is clicked <-- correction: the expensive calculation takes count as parameter hence the change
  * so the resource expensive component is running needlessly when it shouldn't
 */
 
