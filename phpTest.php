@@ -15,7 +15,7 @@ below is an example of simple php file which uses built-in function to output so
     <title>php document</title>
 </head>
 <body>
-    <h1> Below is some php code
+    <h1> Below is some php code</h1>
 </body>
 
 <?php
