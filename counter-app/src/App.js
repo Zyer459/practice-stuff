@@ -3,12 +3,21 @@ import { ReactDOM } from 'react';
 import { useState } from 'react';
 import TodoList from './TodoList';
 
-function App() {
-  const [todos, setTodos] = useState([{
+const list = [
+  {
     id: 1,
     Name: "Todo 1",
     complete: false
-  }])
+  },
+  {
+    id: 2,
+    Name: "Todo 2",
+    complete: false
+  }
+];
+
+function App() {
+  const [todos, setTodos] = useState(list)
 
   return (
     <>

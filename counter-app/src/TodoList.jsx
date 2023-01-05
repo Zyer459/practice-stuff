@@ -6,7 +6,7 @@ function Todo ({todo}) {
     return (
         <h3>{todo.Name}</h3>
     )
-}
+};
 
 function TodoList ({ todoList }) {
     return (
@@ -14,6 +14,6 @@ function TodoList ({ todoList }) {
            return <Todo key={todo.id} todo={todo}/>
         })
     )
-}
+};
 
 export default TodoList;
