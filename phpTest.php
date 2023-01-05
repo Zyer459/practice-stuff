@@ -1,10 +1,5 @@
-<!-- a php script is executed on the server & plain HTML is sent to the browser -->
-<!-- basic php syntax: php script can be placed anywhere in the document & starts/ends with...
-<?php
-// PHP code goes here
-?>
-the php file normally contains HTML tags and php scripting code
-below is an example of simple php file which uses built-in function to output some text -->
+<!-- php variables: 
+in php the variable starts with $ sign followed by name of the variable-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,18 +14,40 @@ below is an example of simple php file which uses built-in function to output so
 </body>
 
 <?php
-echo ("Hello World");
+/*$x = 5;
+$y = 9;
+$z = $x + $y;
+echo ($z);
+
+this outputs sum of 2 variables*/
+
+/**Rules for php variables
+ * starts with $ followed by name
+ * name must start with a letter or the underscore character
+ * names cannot start with numeber
+ * only alpha-numeric is used
+ * names are case-sensitive
+ */
+
+/**OUTPUT VARIABLES */
+$greet = "Hello";
+$user = "Zyer459";
+echo ("Hello " .$user. ", Welcome back!"); // use . before and after variable to use variable values with strings similar to + in JS
 ?>
 </html>
 
-<!-- php statements end with semi-colon similar to JS or C
-and the () parentheses can be skipped from line 22 -->
+<!-- Note: Unlike other programming languages, 
+PHP has no command for declaring a variable. 
+It is created the moment you first assign a value to it.
+-->
 
-<!-- Q. How to run php file? - -> 1. open the terminal or cmd (CLI)
-2. write >>> php -S localhost:4000 <<< and press enter
-3. This command opens up a server on your local machine
-4. The server will start looking for php or any other server-side files in a folder mentioned on the CLI
-5. if the path of the folder is not mentioned its probably in C:User\{userName}
-6. place the file there and then do not start debugging immediately
-7. open up a browser and type the address of the server shown on the CLI
-8. still you won't see anything because you need to type in the specific folder name in the address bar
+<!-- php is a loosely typed language: 
+PHP automatically associates a data type to the variable, depending on its value. 
+Since the data types are not set in a strict sense, 
+you can do things like adding a string to an integer without causing an error.
+-->
+
+<!-- In PHP 7, type declarations were added. This gives an option to specify the data type expected when declaring a function,
+and by enabling the strict requirement,
+it will throw a "Fatal Error" on a type mismatch.
+-->
