@@ -4,7 +4,13 @@ import React from "react";
 
 function TodoList () {
     return (
-        <h1>Hello world</h1>
+        <>
+        <h1>Todo List</h1>
+        <input type="text"/>
+        <button>Add todos</button>
+        <button>Clear todos</button>
+        <div>0 left todos</div>
+        </>
     )
 }
 
