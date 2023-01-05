@@ -1,20 +1,36 @@
-<!-- This is the start of PHP learning
-php is a server-side scripting language.
+<!-- a php script is executed on the server & plain HTML is sent to the browser -->
+<!-- basic php syntax: php script can be placed anywhere in the document & starts/ends with...
+<?php
+// PHP code goes here
+?>
+the php file normally contains HTML tags and php scripting code
+below is an example of simple php file which uses built-in function to output some text -->
 
-Q. What is a php file? - -> php file contains text, html, css, JS & php code
-and its executed on the server.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>php document</title>
+</head>
+<body>
+    <h1> Below is some php code
+</body>
 
-Q. What can php do? - -> 1. can generate dynamic page content
-2. can create, open, read, write, delete $ close files
-3. can collect form data
-4. can send/receive cookies
-5. can add, delete & modify data in a database
-6. can be used to control user access
-7. can encrypt data
+<?php
+echo ("Hello World");
+?>
+</html>
 
-With PHP you are not limited to output HTML. It can output images or PDF or XHTML/XML files
+<!-- php statements end with semi-colon similar to JS or C
+and the () parentheses can be skipped from line 22 -->
 
-Q Why use php? - -> available on various platforms, compatible with almost all servers today & easy and efficient
-
-Q. How to install php> - -> download required zip from php.net > extract in a new folder > set path from 
-"edit system environment variable" > the path should be the folder's path which contains the php files you just extracted
+<!-- Q. How to run php file? - -> 1. open the terminal or cmd (CLI)
+2. write >>> php -S localhost:4000 <<< and press enter
+3. This command opens up a server on your local machine
+4. The server will start looking for php or any other server-side files in a folder mentioned on the CLI
+5. if the path of the folder is not mentioned its probably in C:User\{userName}
+6. place the file there and then do not start debugging immediately
+7. open up a browser and type the address of the server shown on the CLI
+8. still you won't see anything because you need to type in the specific folder name in the address bar
