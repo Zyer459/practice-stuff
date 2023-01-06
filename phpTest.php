@@ -14,40 +14,36 @@ in php the variable starts with $ sign followed by name of the variable-->
 </body>
 
 <?php
-/*$x = 5;
-$y = 9;
-$z = $x + $y;
-echo ($z);
 
-this outputs sum of 2 variables*/
-
-/**Rules for php variables
- * starts with $ followed by name
- * name must start with a letter or the underscore character
- * names cannot start with numeber
- * only alpha-numeric is used
- * names are case-sensitive
+/**the scope of variable is the part of the script the variables can be referenced/used
+ * these are local, global & static
+ * Global variable is declared OUTSIDE a function & can only be accessed outside the function
+ * Local variable is declared INSIDE/WITHIN a function & can only be accessed within the function
+ * 
+ * PHP GLOBAL KEYWORD: the (global) keyword is used to access a global variable from within a function, 
+ * to do this: use global keyword before the variables within the function
+ * EXAMPLE: 
  */
 
-/**OUTPUT VARIABLES */
-$greet = "Hello";
-$user = "Zyer459";
-echo ("Hello " .$user. ", Welcome back!"); // use . before and after variable to use variable values with strings similar to + in JS
+/***/
+$x = 5;
+$y = 6;
+
+function myTest() {
+    global $x, $y;
+    $y = $x + $y;
+    echo ($y); // returns 11
+}
+
+echo (myTest ()); // putting the function in the echo function doesn't work if the function doesn't return anything
 ?>
 </html>
 
-<!-- Note: Unlike other programming languages, 
-PHP has no command for declaring a variable. 
-It is created the moment you first assign a value to it.
+<!-- 
 -->
 
-<!-- php is a loosely typed language: 
-PHP automatically associates a data type to the variable, depending on its value. 
-Since the data types are not set in a strict sense, 
-you can do things like adding a string to an integer without causing an error.
+<!-- 
 -->
 
-<!-- In PHP 7, type declarations were added. This gives an option to specify the data type expected when declaring a function,
-and by enabling the strict requirement,
-it will throw a "Fatal Error" on a type mismatch.
+<!-- 
 -->
