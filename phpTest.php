@@ -30,16 +30,21 @@ $x = 5;
 $y = 6;
 
 function myTest() {
-    global $x, $y;
+    /*global $x, $y;
     $y = $x + $y;
-    echo ($y); // returns 11
+    echo ($y);
+    Rewritten the code below with $GLOBAL[index]*/
+    
+    $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
 }
-
-echo (myTest ()); // putting the function in the echo function doesn't work if the function doesn't return anything
+myTest();
+echo ($y); // putting the function in the echo function doesn't work if the function doesn't return anything
 ?>
 </html>
 
-<!-- 
+<!-- php also stores all global variables in an array called $GLOBALS[index]
+     the index holds the name of the variable 
+     this array is also available from within functions & can be used to update global variables directly
 -->
 
 <!-- 
