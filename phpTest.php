@@ -15,36 +15,31 @@ in php the variable starts with $ sign followed by name of the variable-->
 
 <?php
 
-/**the scope of variable is the part of the script the variables can be referenced/used
- * these are local, global & static
- * Global variable is declared OUTSIDE a function & can only be accessed outside the function
- * Local variable is declared INSIDE/WITHIN a function & can only be accessed within the function
- * 
- * PHP GLOBAL KEYWORD: the (global) keyword is used to access a global variable from within a function, 
- * to do this: use global keyword before the variables within the function
- * EXAMPLE: 
+/** The static keyword 
+ * normally after a function is completed/executed, all of its variables are deleted.
+ * However, we might want to keep the local variables for further use
+ * to do this use the static keyword when you 1st declare a local variable
  */
 
-/***/
-$x = 5;
-$y = 6;
+ function myTest () {
+    static $x = 0;
+    echo ($x);
+    $x++;
+ }
+ myTest();
+ echo "<br>"; // write HTML code as strings
+ myTest();
+ echo "<br>"; // this creates a new line break
+ myTest();
+ echo "<br>";
 
-function myTest() {
-    /*global $x, $y;
-    $y = $x + $y;
-    echo ($y);
-    Rewritten the code below with $GLOBAL[index]*/
-    
-    $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
-}
-myTest();
-echo ($y); // putting the function in the echo function doesn't work if the function doesn't return anything
+ /**here everytime the function is called, the variable will keep its previous value from the last function
+  * to test it remove the static keyword from the variable to see its effect
+  */
 ?>
 </html>
 
-<!-- php also stores all global variables in an array called $GLOBALS[index]
-     the index holds the name of the variable 
-     this array is also available from within functions & can be used to update global variables directly
+<!--
 -->
 
 <!-- 
