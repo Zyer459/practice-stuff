@@ -27,25 +27,13 @@
 </body>
 
 <?php
-/**EXAMPLE OF CLASS & OBJECT */
-class Car {
-    public $color;
-    public $model;
-    public function __construct($color, $model)
-    {
-        $this->color = $color;
-        $this->model = $model;
-    }
-    public function message () {
-        return "My car is a " .$this->color. " " .$this->model. "!";
-    }
-}
+/**EXAMPLE OF NULL */
 
-$myCar = new Car ("black", "Toyota");
-echo ($myCar->message());
-echo ("</br>");
-$myCar = new Car ("Red", "Audi");
-echo ($myCar->message());
+$x = "hello world";
+echo $x;
+echo "</br>";
+$x = null;
+var_dump($x);
 ?>
 </html>
 
