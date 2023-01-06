@@ -1,16 +1,13 @@
-<!--  PHP DATA TYPES:
-      php supports following data types:
+<!--  PHP STRINGS:
+      some commonly used functions to manipulate strings in php
 
-      1) String: done
-      2) Integer: done + can be decimal, hex, octal, or binary integer
-      3) Float: done
-      4) Boolean: done
-      5) Array: multiple values in single variable, example: $cars = array ("Volvo", "BMW", "Ford");
-      6) Object: object & class are important for OOP, class = template for object & object = instance of class
-      7) NULL: special data type, it has only 1 value -> NULL. If a variable is created without assigning any value to it, it automatically becomes NULL
-      variables can also be emptied by setting its value to NULL.
-      8) Resource: its not an actually data type. Its the sorting of of a reference to function & resources external to php.
-      A common example of using the resource data type is a database call.
+      1) strlen(): takes a string or variable with string as value & returns the length of string.
+      2) str_word_count(): returns the number of WORDS (caution: not letters!) in a string.
+      3) strrev(): reverses a string.
+      4) strpos(): searches for a specific text in a string of texts & 
+      returns the position of the 1st letter of the 1st occurrence of the required text.
+      5) str_replace(): replaces some characters with some other characters in a string. Takes 3 arguments (to be replaced, replace with, string)
+
 
 -->
 
@@ -27,13 +24,20 @@
 </body>
 
 <?php
-/**EXAMPLE OF NULL */
-
-$x = "hello world";
-echo $x;
+/**EXAMPLES:  */
+echo strlen ("Hello world!@#"); //counts alpha-numeric puncuation & special characters
 echo "</br>";
-$x = null;
-var_dump($x);
+echo "</br>";
+echo str_word_count("Hello world!"); //outputs 2
+echo "</br>";
+echo "</br>";
+echo strrev("Hello, world!");
+echo "</br>";
+echo "</br>";
+echo strpos("Hello, world", "ld");//outputs 10
+echo "</br>";
+echo "</br>";
+echo str_replace("world", "Dolly", "Hello world!"); // outputs Hello Dolly! instead of Hello world!
 ?>
 </html>
 
