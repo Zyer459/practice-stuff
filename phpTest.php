@@ -1,11 +1,17 @@
-<!-- with php there are 2 basic ways to get outputs echo & print
-they are almost the same, both are used for output 
-only few small differences: 
-    
-    echo has no return value and, 
-    print has a return value of 1 & can be used in expressions.
-    echo can take multiple parameters (arguments), while print takes only 1 argument.
-    echo is marginally faster than print
+<!--  PHP DATA TYPES:
+      php supports following data types:
+
+      1) String: done
+      2) Integer: done + can be decimal, hex, octal, or binary integer
+      3) Float: done
+      4) Boolean: done
+      5) Array: multiple values in single variable, example: $cars = array ("Volvo", "BMW", "Ford");
+      6) Object: object & class are important for OOP, class = template for object & object = instance of class
+      7) NULL: special data type, it has only 1 value -> NULL. If a variable is created without assigning any value to it, it automatically becomes NULL
+      variables can also be emptied by setting its value to NULL.
+      8) Resource: its not an actually data type. Its the sorting of of a reference to function & resources external to php.
+      A common example of using the resource data type is a database call.
+
 -->
 
 <!DOCTYPE html>
@@ -21,24 +27,9 @@ only few small differences:
 </body>
 
 <?php
-/**print is similar to echo statement
- * display text: 
- */
-print "<h2> Yay! PHP is fun </h2>";
-print "Hello world </br>";
-print "I'm learning php";
-
-/**display variables: */
-
-$txt1 = "Het there, ";
-$txt2 = "welcome back";
-$user = "Zyer459";
-print "<h2> " .$txt1. $user. $txt2. "</h2>";
-
-$x = 8;
-$y = 4;
-print $x + $y;
-
+/**EXAMPLE OF ARRAY */
+$cars = array("Volvo","BMW","Toyota");
+var_dump($cars); //var_dump($variable) gives details about the variable
 ?>
 </html>
 
