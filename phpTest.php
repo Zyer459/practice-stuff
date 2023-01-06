@@ -21,6 +21,28 @@ only few small differences:
 </body>
 
 <?php
+/**echo statement can be used with or without parentheses > () 
+ * display text or HTML: 
+ * the following shows how to display text and HTML markup
+*/
+echo "<h2>PHP is Fun!</h2>";//HTML
+echo "Hello world!<br>";//text + HTML
+echo "I'm about to learn PHP!<br>";//text
+echo "This ", "string ", "was ", "made ", "with multiple parameters.";
+
+/**display values: 
+ * The following example shows how to output text and variables with the echo statement:
+ */
+$txt1 = "Hello";
+$user = "Zyer459";
+$txt2 = "welcome back";
+
+$x = 5;
+$y = 4;
+
+echo "<h2> " .$txt1. " " .$user. ", " .$txt2. "</h2>";// use . to join variables with variables/text/HTML
+echo "How are you?", "<br/>";
+echo "z = " .$x + $y;
 ?>
 </html>
 
