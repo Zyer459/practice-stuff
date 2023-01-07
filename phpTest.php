@@ -4,15 +4,18 @@
       if you again assign a string to that variable it will be a string data type.
       this automatic conversion although useful, it can sometimes break the code.
 
-      php has the following predefined constants for integers:
-        PHP_INT_MAX - The largest integer supported
-        PHP_INT_MIN - The smallest integer supported
-        PHP_INT_SIZE - The size of an integer in bytes (memory allocation of the integer)
+      php has the following predefined constants for floats (from PHP 7.2):
+        PHP_FLOAT_MAX - The largest representable floating point number
+        PHP_FLOAT_MIN - The smallest representable positive floating point number
+        PHP_FLOAT_MAX - The smallest representable negative floating point number
+        PHP_FLOAT_DIG - The number of decimal digits that can be rounded into a float and back without precision loss
+        PHP_FLOAT_EPSILON - The smallest representable positive number x, so that x + 1.0 != 1.0
+        
 
-      php has the following functions to check if the type of a variable is integer or not:
-        is_int()
-        is_integer() -> alias of is_int()
-        is_long() -> alias of is_int()
+      php has the following functions to check if the type of a variable is float or not:
+        is_float()
+        is_double() -> alias of is_float()
+        
 -->
 
 <!DOCTYPE html>
@@ -30,12 +33,17 @@
 <?php
 /**EXAMPLE: */
 
-$x = 5596;
+/*$x = 5596;
 var_dump(is_int($x));// returns true
-echo("</br>");
+echo("</br>");*/
 
 $x = 55.96;
-var_dump(is_int($x));// returns false
+var_dump(is_int($x));// returns false-> because its a float see below
+echo("</br>");
+
+var_dump(is_float($x));// returns true
+
+
 ?>
 </html>
 
