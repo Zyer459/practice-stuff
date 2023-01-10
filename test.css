@@ -9,7 +9,7 @@ a {
 }
 
 div.main {
-    background-color: rgb(91, 102, 114);
+    background-color: #1C1C1C;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,4 +40,14 @@ div.content {
     color: white;
     border-radius: 10px 4px 10px 0;
     cursor: pointer;
+    z-index: 1;
+    transition: all 0.2s linear;
+    box-shadow: none, none;
+}
+
+.btn:hover {
+    color: #1C1C1C;
+    background-color: white;
+    box-shadow: 5px 10px 5px 2px #848884, -5px -10px 5px 2px #848884;
+
 }
