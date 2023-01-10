@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
 div.main {
     background-color: rgb(91, 102, 114);
     display: flex;
@@ -36,6 +40,7 @@ div.content {
     overflow: hidden;
     z-index: 1;
     transition: all 0.4s ease-in-out;
+    cursor: pointer;
 }
 
 .btn::before {
