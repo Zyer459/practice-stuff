@@ -27,8 +27,10 @@ div.content {
 }
 
 .btn {
-    background-color: transparent;
-    border: 2px solid #1C1C1C;
+    background-color: white;
+    border: 1px solid #1C1C1C;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
     padding: 0.5rem 0.75rem;
     text-transform: uppercase;
     font-size: 1.5rem;
@@ -37,18 +39,19 @@ div.content {
     height: 100%;
     letter-spacing: normal;
     word-spacing: normal;
-    color: white;
+    color: black;
     border-radius: 10px 4px 10px 0;
     cursor: pointer;
     z-index: 1;
+    box-shadow: 5px 8px 0 2px #848884;
+    transform: translateY(-5px);
     transition: all 0.2s linear;
-    box-shadow: none, none;
 }
 
 .btn:hover {
-    color: #1C1C1C;
-    background-color: white;
-    box-shadow: 5px 10px 5px 2px #848884, -5px -10px 5px 2px #848884;
+    color: ivory;
+    background-color: #1C1C1C;
     border: 2px solid white;
-
+    box-shadow: 0 0 0 0 #848884;
+    transform: translateY(10px);
 }
