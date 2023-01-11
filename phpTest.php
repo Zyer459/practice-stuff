@@ -4,12 +4,11 @@
       if you again assign a string to that variable it will be a string data type.
       this automatic conversion although useful, it can sometimes break the code.
 
-      php NaN -> NaN stands for not a number
-      NaN is used for impossible mathematical operations
-      php has the following functions to if a value is not a number:
-        * is_nan()
-        However, the PHP var_dump() function returns the data type and value:
-
+      php numerical strings -> 
+      the php is_numeric() function can be used to find whether a variable is numeric.
+      it returns true/false
+      the function returns true if the variable is a number or numeric string
+      false otherwise
 -->
 
 <!DOCTYPE html>
@@ -27,13 +26,25 @@
 <?php
 /**EXAMPLE: */
 
-$x = acos(8); // here a is undefined
-var_dump($x); //returns the data type as float & NaN
+$x = 5985;
+var_dump (is_numeric(($x))); //returns true
+
+$x = "5985";
+var_dump(is_numeric($x)); //returns true
+
+$x = "59.85" + 100;
+var_dump(is_numeric($x)); //returns true
+
+$x = "Hello";
+var_dump(is_numeric($x)); //returns false
+
 
 ?>
 </html>
 
 <!--
+    Note: From PHP 7.0: The is_numeric() function will return FALSE for numeric strings in hexadecimal form (e.g. 0xf4c3b00c), 
+    as they are no longer considered as numeric strings.
 -->
 
 <!-- 
