@@ -4,11 +4,9 @@
       if you again assign a string to that variable it will be a string data type.
       this automatic conversion although useful, it can sometimes break the code.
 
-      php numerical strings -> 
-      the php is_numeric() function can be used to find whether a variable is numeric.
-      it returns true/false
-      the function returns true if the variable is a number or numeric string
-      false otherwise
+      PHP Casting Strings and Floats to Integers ->
+      Sometimes you need to cast a numerical value into another data type.
+      The (int), (integer), or intval() function are often used to convert a value to an integer.
 -->
 
 <!DOCTYPE html>
@@ -24,20 +22,20 @@
 </body>
 
 <?php
-/**EXAMPLE: */
+/**EXAMPLE: Cast float and string to integer:*/
 
-$x = 5985;
-var_dump (is_numeric(($x))); //returns true
+// Cast float to int
+$x = 23465.768;
+$int_cast = (int)$x;
+echo $int_cast;
+var_dump($int_cast);
 
-$x = "5985";
-var_dump(is_numeric($x)); //returns true
+echo "</br>";
 
-$x = "59.85" + 100;
-var_dump(is_numeric($x)); //returns true
-
-$x = "Hello";
-var_dump(is_numeric($x)); //returns false
-
+$x = "23465.768";
+$int_cast = (int)$x;
+echo $int_cast;
+var_dump($int_cast);
 
 ?>
 </html>
