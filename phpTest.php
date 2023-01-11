@@ -4,16 +4,12 @@
       if you again assign a string to that variable it will be a string data type.
       this automatic conversion although useful, it can sometimes break the code.
 
-      A numeric value larger than PHP_FLOAT_MAX is considered infinite.
-        
-        
+      php NaN -> NaN stands for not a number
+      NaN is used for impossible mathematical operations
+      php has the following functions to if a value is not a number:
+        * is_nan()
+        However, the PHP var_dump() function returns the data type and value:
 
-      php has the following functions to check if a numeric value is infinite or not:
-        is_finite()
-        is_infinite()
-
-        however, 
-        the php var_dump() returns the data type & value      
 -->
 
 <!DOCTYPE html>
@@ -31,16 +27,8 @@
 <?php
 /**EXAMPLE: */
 
-$x = 1.9e411;
-var_dump($x);// (INF) means its an infinite number
-
-echo("</br>");
-
-var_dump(is_finite($x));// returns false
-
-echo("</br>");
-
-var_dump(is_infinite($x));// returns true
+$x = acos(8); // here a is undefined
+var_dump($x); //returns the data type as float & NaN
 
 ?>
 </html>
