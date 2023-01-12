@@ -7,12 +7,7 @@
             A valid constant name starts with a letter or underscore (no $ sign before the constant name).
             Unlike variables, constants are automatically global across the entire script.
 
-            create a constant:
-            use the define() function -> php 7
-            or 
-            const keyword
-
-            create an array constant using define() function in php 7
+            in php constants are automatically global & can be used across the entire script
 -->
 
 <!DOCTYPE html>
@@ -28,15 +23,16 @@
 </body>
 
 <?php
-/**EXAMPLE: create an array constant*/
+/**EXAMPLE: this example uses a constant inside a function, even if it is defined outside the function */
 
-define("cars", ["Alfa Romeo","BMW","Toyota"]); // create array const using define()
-echo cars[1]; // returns BMW
+define("greeting", "hello world"); //define the constant outside the function
 
-echo "<br>";
+function greet () {
+    echo greeting; //use constant inside the function
+}
 
-const cars2 = ["Ford","BMW","Toyota"]; // create array const using const keyword
-echo cars2[0];
+greet(); //call the function
+
 ?>
 </html>
 
