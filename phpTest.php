@@ -1,12 +1,15 @@
-<!--  PHP NUMBERS: 
-      php provides automatic data type conversion.
-      if you assign an integer to a variable, the type of the variable wiil automatically be integer.
-      if you again assign a string to that variable it will be a string data type.
-      this automatic conversion although useful, it can sometimes break the code.
-
-      PHP Casting Strings and Floats to Integers ->
-      Sometimes you need to cast a numerical value into another data type.
-      The (int), (integer), or intval() function are often used to convert a value to an integer.
+<!--  PHP MATH: 
+            php has a set of math functions that allows to perform mathematical tasks on numbers
+            such as the pi function
+            echo (pi()) returns the value of pi
+            the min() & the max() returns the finds the lowest/highest value in a list of arguments
+            the abs(), the absolute function returns the absolute value of a number
+            the sqrt() returns the square root of a number
+            the pow(), raises the 1st argument to the power of its 2nd argument
+            round(), rounds a number to its CLOSEST integer
+            ceil(), rounds a number UP to an integer
+            floor(), rounds a number DOWN to an integer
+            rand(), generates a random number
 -->
 
 <!DOCTYPE html>
@@ -22,27 +25,50 @@
 </body>
 
 <?php
-/**EXAMPLE: Cast float and string to integer:*/
+/**EXAMPLE: */
 
-// Cast float to int
-$x = 23465.768;
-$int_cast = (int)$x;
-echo $int_cast;
-var_dump($int_cast);
+echo (pi()); // returns pi value
+echo "<br>";
 
-echo "</br>";
+echo (max(1264, 468.4, 99.552)); // returns the highest value
+echo "<br>";
 
-$x = "23465.768";
-$int_cast = (int)$x;
-echo $int_cast;
-var_dump($int_cast);
+echo (min(1264, 468.4, 99.552)); // returns the lowest value
+echo "<br>";
 
+echo (abs(-25.4)); // returns the absolute value -> 25.4
+echo "<br>";
+
+echo (sqrt(256)); // returns 16
+echo "<br>";
+
+echo (pow(2, 4)); // returns 16
+echo "<br>";
+
+echo (round(7.5)); // returns 8 since its the closest
+echo "<br>";
+echo (round(7.4)); // returns 7 since its the closest
+echo "<br>";
+
+echo (ceil(3.0000000001)); // rounds UP & returns 4
+echo "<br>";
+echo (floor(3.9595)); // rounds DOWN & returns 3
+echo "<br>";
+
+/**below is the rand()
+ * To get more control over the random number
+ * add the optional min and max parameters to specify the lowest integer and the highest integer to be returned
+ * For example, if you want a random integer between 10 and 100 (inclusive), use rand(10, 100)
+ */
+
+echo (rand(10, 100)); // returns a random number between 10 & 100 (including 10 & 100)
+echo "<br>";
+echo (rand(1, 10)); // returns random number between 1 & 10
 ?>
 </html>
 
 <!--
-    Note: From PHP 7.0: The is_numeric() function will return FALSE for numeric strings in hexadecimal form (e.g. 0xf4c3b00c), 
-    as they are no longer considered as numeric strings.
+    
 -->
 
 <!-- 
