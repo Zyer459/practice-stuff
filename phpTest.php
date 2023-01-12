@@ -1,13 +1,13 @@
-<!--  PHP CONSTANTS: 
-            constants are like variables except once defined
-            they cannot be changed, redefined or undefined
-
-            in php:
-            A constant is an identifier (name) for a simple value. The value cannot be changed during the script.
-            A valid constant name starts with a letter or underscore (no $ sign before the constant name).
-            Unlike variables, constants are automatically global across the entire script.
-
-            in php constants are automatically global & can be used across the entire script
+<!--  PHP OPERATORS: 
+            php divides operators into following groups:
+            *Arithmetic operators
+            *Assignment operators
+            *Comparison operators
+            *Increment/Decrement operators
+            *Logical operators
+            *String operators
+            *Array operators* -> used to compare arrays
+            *Conditional assignment operators*
 -->
 
 <!DOCTYPE html>
@@ -23,22 +23,54 @@
 </body>
 
 <?php
-/**EXAMPLE: this example uses a constant inside a function, even if it is defined outside the function */
+/**EXAMPLE: */
+/**Arithmetic operators -> add(+) sub(-) divide(/) multiply(*) mod(%) exponent(**)
+ * 
+ * Assignment operators(or syntactic sugar except '=' ) -> 
+ * assign the right side to left side (=),
+ * 1st add the left to right side then assign the result to the left side (+=),
+ * 1st subtract the right from left then assign the result to the left side (-=),
+ * 1st divide the left by right then assign the result to the left side (/=),
+ * 1st multiply the left with right then assign the result to the left side (*=),
+ * 1st divide the left by right then assign the REMAINDER to the left side (%=),
+ * 
+ * Comparison operators: Equal (== /true for same value), identical (=== /true for same value & type)
+ * not equal (!= or <>) true if 2 values are not equal, not identical (!==)
+ * greater than (>), less than (<)
+ * greater than or equal (>=), less than or equal (<=)
+ * spaceship (<=>) returns an integer less than, equal to or greater than zero
+ * depending on -> if left side is less than, equal to or greater than right side (PHP 7)
+ * 
+ * PHP Increment / Decrement Operators: pre & post-increment (++$x / $x++)
+ * pre & post-decrement ($--x / $x--)
+ * 
+ * php logical operators: AND (and / &&), OR (or / ||), NOT (!), XOR (xor / either of the 2 values is true and not both true at once)
+ * 
+ * php string operators: Concatenation (.), Concatenation assignment (.=)
+ */
 
-define("greeting", "hello world"); //define the constant outside the function
+ /**example for spaceship */
+$x = 5;  
+$y = 10;
 
-function greet () {
-    echo greeting; //use constant inside the function
-}
+echo ($x <=> $y); // returns -1 because $x is less than $y
+echo "<br>";
 
-greet(); //call the function
+$x = 10;  
+$y = 10;
 
-?>
+echo ($x <=> $y); // returns 0 because values are equal
+echo "<br>";
+
+$x = 15;  
+$y = 10;
+
+echo ($x <=> $y); // returns +1 because $x is greater than $y
+?>  
 </html>
 
 <!-- 
-    note: see the official documentation on constants -> https://www.php.net/manual/en/language.constants.php
-    can use the const keyword to create not just array constants
+    
 -->
 
 <!-- 
