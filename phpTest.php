@@ -24,53 +24,47 @@
 
 <?php
 /**EXAMPLE: */
-/**Arithmetic operators -> add(+) sub(-) divide(/) multiply(*) mod(%) exponent(**)
- * 
- * Assignment operators(or syntactic sugar except '=' ) -> 
- * assign the right side to left side (=),
- * 1st add the left to right side then assign the result to the left side (+=),
- * 1st subtract the right from left then assign the result to the left side (-=),
- * 1st divide the left by right then assign the result to the left side (/=),
- * 1st multiply the left with right then assign the result to the left side (*=),
- * 1st divide the left by right then assign the REMAINDER to the left side (%=),
- * 
- * Comparison operators: Equal (== /true for same value), identical (=== /true for same value & type)
- * not equal (!= or <>) true if 2 values are not equal, not identical (!==)
- * greater than (>), less than (<)
- * greater than or equal (>=), less than or equal (<=)
- * spaceship (<=>) returns an integer less than, equal to or greater than zero
- * depending on -> if left side is less than, equal to or greater than right side (PHP 7)
- * 
- * PHP Increment / Decrement Operators: pre & post-increment (++$x / $x++)
- * pre & post-decrement ($--x / $x--)
- * 
- * php logical operators: AND (and / &&), OR (or / ||), NOT (!), XOR (xor / either of the 2 values is true and not both true at once)
- * 
- * php string operators: Concatenation (.), Concatenation assignment (.=)
+/**Array operators -> 
+ * Union (+) -> union of arrays
+ * Equality (==) -> returns true if arrays have same key/value pairs
+ * Identity (===) -> returns true if arrays have same key/value pairs, in the same order & of the same type
+ * Ineqaulity (!= or <>) returns if arrays are not equal
+ * Non-identity (!==) returns true if arrays are not identical to each other
  */
 
- /**example for spaceship */
-$x = 5;  
-$y = 10;
+$x = array ("a" => "red", "b" => "blue");
+$y = array ("c" => "green", "d" => "yellow");
 
-echo ($x <=> $y); // returns -1 because $x is less than $y
-echo "<br>";
+print_r($x + $y); //union of x & y arrays
+echo"<br>";
 
-$x = 10;  
-$y = 10;
+$x = array("a" => "red", "b" => "green");  
+$y = array("c" => "blue", "d" => "yellow");  
 
-echo ($x <=> $y); // returns 0 because values are equal
-echo "<br>";
+var_dump($x == $y); //returns false
+echo"<br>";
 
-$x = 15;  
-$y = 10;
+$x = array("a" => "red", "a" => "red");  
+$y = array("a" => "red", "a" => "red");  
 
-echo ($x <=> $y); // returns +1 because $x is greater than $y
+var_dump($x == $y); //returns true
+echo"<br>";
+
+$x = array("a" => "red", "b" => "green");  
+$y = array("c" => "blue", "d" => "yellow");  
+
+var_dump($x === $y); //returns false
+echo"<br>";
+
+$x = array("a" => "red", "b" => "green");  
+$y = array("c" => "blue", "d" => "yellow");  
+
+var_dump($x <> $y); //returns true
 ?>  
 </html>
 
 <!-- 
-    
+    above are some array operator examples
 -->
 
 <!-- 
