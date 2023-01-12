@@ -1,15 +1,19 @@
-<!--  PHP MATH: 
-            php has a set of math functions that allows to perform mathematical tasks on numbers
-            such as the pi function
-            echo (pi()) returns the value of pi
-            the min() & the max() returns the finds the lowest/highest value in a list of arguments
-            the abs(), the absolute function returns the absolute value of a number
-            the sqrt() returns the square root of a number
-            the pow(), raises the 1st argument to the power of its 2nd argument
-            round(), rounds a number to its CLOSEST integer
-            ceil(), rounds a number UP to an integer
-            floor(), rounds a number DOWN to an integer
-            rand(), generates a random number
+<!--  PHP CONSTANTS: 
+            constants are like variables except once defined
+            they cannot be changed, redefined or undefined
+
+            in php:
+            A constant is an identifier (name) for a simple value. The value cannot be changed during the script.
+            A valid constant name starts with a letter or underscore (no $ sign before the constant name).
+            Unlike variables, constants are automatically global across the entire script.
+
+            create a constant:
+            use the define() function
+            syntax -> define(name, value, case-insensitive)
+            name -> specifies the name of the constant (the name must be a string)
+            value -> specifies the value of constant (can be any data type)
+            case-insensitive -> specifies whether the constant name should be case-insensitive, default is false (it means it is case-sensitive)
+            enter boolean values for 3rd parameter
 -->
 
 <!DOCTYPE html>
@@ -25,50 +29,26 @@
 </body>
 
 <?php
-/**EXAMPLE: */
+/**EXAMPLE: Create a constant with a case-sensitive name:*/
 
-echo (pi()); // returns pi value
-echo "<br>";
-
-echo (max(1264, 468.4, 99.552)); // returns the highest value
+define ("num", 55); // 3rd parameter is set to default which is false, if type echo (nuM) or anything else it throws fatal error
+echo (num); // returns the value of num which is 55
 echo "<br>";
 
-echo (min(1264, 468.4, 99.552)); // returns the lowest value
+define("value", true); // warning
+echo value; // returns 1 for true & 0 for false
 echo "<br>";
 
-echo (abs(-25.4)); // returns the absolute value -> 25.4
+define("GREET", "hello world", true);
+echo gREET; // should return the string hello world
 echo "<br>";
-
-echo (sqrt(256)); // returns 16
-echo "<br>";
-
-echo (pow(2, 4)); // returns 16
-echo "<br>";
-
-echo (round(7.5)); // returns 8 since its the closest
-echo "<br>";
-echo (round(7.4)); // returns 7 since its the closest
-echo "<br>";
-
-echo (ceil(3.0000000001)); // rounds UP & returns 4
-echo "<br>";
-echo (floor(3.9595)); // rounds DOWN & returns 3
-echo "<br>";
-
-/**below is the rand()
- * To get more control over the random number
- * add the optional min and max parameters to specify the lowest integer and the highest integer to be returned
- * For example, if you want a random integer between 10 and 100 (inclusive), use rand(10, 100)
- */
-
-echo (rand(10, 100)); // returns a random number between 10 & 100 (including 10 & 100)
-echo "<br>";
-echo (rand(1, 10)); // returns random number between 1 & 10
 ?>
 </html>
 
-<!--
-    
+<!-- very important
+    In versions prior to PHP 8.0, it was possible to define case-insensitive constants by passing true as third parameter of the function.
+    In PHP 7.3 and 7.4, the ability to define case-insensitive constants is deprecated.
+    Since PHP 8.0, defining case-insensitive constants has been removed. (Lindevs)
 -->
 
 <!-- 
