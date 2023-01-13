@@ -26,19 +26,22 @@
 </body>
 
 <?php
-/**EXAMPLE: In the following example we try to send both a number and a string to the function without using strict & add types declarations to variables:*/
+/**EXAMPLE: In the following example we try to send both a number and a string to the function, but here we have added the strict declaration: */
+
+declare(strict_types=1); // strict requirement
 
 function addNumbers (int $a, int $b) {
     return $a + $b;
 }
 
 echo addNumbers(5, "5 days");
-// since strict is NOT enabled "5 days" is changed to int(5), and it will return 10
+// since strict is enabled and "5 days" is not an integer, an error will be thrown
 ?>  
 </html>
 
 <!-- 
-    
+    To specify strict we need to set declare(strict_types=1);. This must be on the very first line of the PHP file.
+    The strict declaration forces things to be used in the intended way.
 -->
 
 <!-- 
