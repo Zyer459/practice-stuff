@@ -5,12 +5,9 @@
                         some code;
                     }
 
-                    it looks same as javascript in php functionNames are not case-sensitive but its good to keep it as case-sensitive
-                    php is loosely typed language so php automatically associates data type to variables, depending on its value
-                    you can do things like adding a string to an integer without causing an error.
-
-                    In PHP 7, type declarations were added. This gives us an option to specify the expected data type when declaring a function,
-                    and by adding the strict declaration, it will throw a "Fatal Error" if the data type mismatches.
+                    to add return type declarations for the return statement
+                    To declare a type for the function return, add a colon ( : )
+                    and the type right before the opening curly ( { )bracket when declaring the function.
 -->
 
 <!DOCTYPE html>
@@ -26,16 +23,15 @@
 </body>
 
 <?php
-/**EXAMPLE: In the following example we try to send both a number and a string to the function, but here we have added the strict declaration: */
+/**EXAMPLE: adding return type declarations*/
 
 declare(strict_types=1); // strict requirement
 
-function addNumbers (int $a, int $b) {
-    return $a + $b;
+function addNumbers(float $a, float $b) : float {
+  return $a + $b;
 }
+echo addNumbers(1.2, 5.2);
 
-echo addNumbers(5, "5 days");
-// since strict is enabled and "5 days" is not an integer, an error will be thrown
 ?>  
 </html>
 
@@ -45,6 +41,7 @@ echo addNumbers(5, "5 days");
 -->
 
 <!-- 
+    the return type declaration used with -> declare(strict_types=1);  tells the function what type of data type to expect in the return statement 
 -->
 
 <!-- 
