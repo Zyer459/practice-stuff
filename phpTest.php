@@ -1,13 +1,21 @@
 <!--  PHP FUNCTIONS: 
-                    user defined function syntax: 
+                Passing Arguments by Reference:
+                 there are 2 ways of passing arguments to a function
+                 1) pass by value 2)pass by reference
 
-                    function functionName () {
-                        some code;
-                    }
+                 1) pass by value: its the usual way of passing arguments to a function,
+                 it means that a copy of the value is used in the function & the variable (which had the value) passed
+                 into the function cannot be changed by the function -> in short
+                 the value of the variable is copied & saved in a different variable inside the function & the new variable can only be changed within the function
+                 and it will not affect the variable outside the function
 
-                    to add return type declarations for the return statement
-                    To declare a type for the function return, add a colon ( : )
-                    and the type right before the opening curly ( { )bracket when declaring the function.
+                 2) pass by reference: When a function argument is passed by reference,
+                 changes to the argument also change the variable that was passed into the function.
+                 To turn a function argument into a reference, the & operator is used.
+
+                 in short -> changed a variable outside a function by passing it as an argument by reference
+                 changes made to the argument within the function will affect the variable outside
+
 -->
 
 <!DOCTYPE html>
@@ -23,25 +31,23 @@
 </body>
 
 <?php
-/**EXAMPLE: adding return type declarations*/
+/**EXAMPLE: Use a pass-by-reference argument to update a variable*/
 
-declare(strict_types=1); // strict requirement
-
-function addNumbers(float $a, float $b) : float {
-  return $a + $b;
-}
-echo addNumbers(1.2, 5.2);
+function add_five(&$value) {
+    $value += 5;
+  }
+  
+  $num = 2;
+  add_five($num);
+  echo $num;
 
 ?>  
 </html>
 
 <!-- 
-    To specify strict we need to set declare(strict_types=1);. This must be on the very first line of the PHP file.
-    The strict declaration forces things to be used in the intended way.
 -->
 
 <!-- 
-    the return type declaration used with -> declare(strict_types=1);  tells the function what type of data type to expect in the return statement 
 -->
 
 <!-- 
