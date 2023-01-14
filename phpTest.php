@@ -2,15 +2,8 @@
                 in php arrays are created using the array() function
                 there are 3 types of arrays in php these are :
 
-                Associative arrays - Arrays with named keys: the arrays that use named keys assigned to them are called associative arrays
-                there are 2 ways to create an associative array
-
-                1) $age = array ("Name1" => "25", "Name2" => "35", "Name3" => "22"); the numbers here are strings
-
-                2) $age["Name1"] = "25";
-                   $age["Name2"] = "35";
-                   $age["Name3"] = "22";
-
+                Multidimensional arrays - sometimes you want to store values with more than one key. For this, we have multidimensional arrays.
+                A multidimensional array is an array containing one or more arrays.
 
 -->
 
@@ -27,38 +20,43 @@
 </body>
 
 <?php
-/**EXAMPLE: using the 1st method*/
+/**EXAMPLE: 2-dimensional arrays is an array of arrays*/
 
-$age = array ("Peter" => 25, "John" => 35, "Jake" => 22); // I changed the numbers from strings to integer data type
+$cars = array (
+    array ("Toyota", 22, 18),
+    array ("BMW", 5, 10),
+    array ("Audi", 3, 15)
+);
+// the above is an array of car brands and how many stock/sold now print out the data
 
-echo "Jake is " .$age["Jake"]. " years old";
-echo "<br>";
+echo $cars[0][0]. ": In stock: " .$cars[0][1]. ", Sold: " .$cars[0][2];
+echo"<br>";
+echo $cars[1][0]. ": In stock: " .$cars[1][1]. ", Sold: " .$cars[1][2];
+echo"<br>";
+echo $cars[2][0]. ": In stock: " .$cars[2][1]. ", Sold: " .$cars[2][2];
 
-/**Looping through an associative array: use foreach loop*/
-$age2["A"] = "25"; // kept the numbers as strings
-$age2["B"] = "35";
-$age2["C"] = "22";
+// what if there were more arrays like 50 or 300! in that case a loop is useful
 
-foreach ($age2 as $i => $i_value) {
-    echo "Key = " .$i. ", value = " .$i_value;
-    echo "<br>";
-}
+echo"<br>";
+echo"<br>";
+echo"<br>";
+
+/*for ($col = 0; $col < 3; $col++) {
+    echo "<p><b>Row number $col</b></p>";
+    for ($row = 0; $row < 3; $row++) {
+        echo $cars[$row][$col]. ": In stock: " .$cars[$row][1]. ", Sold: " .$cars[$row][2];
+    }
+} bug*/
 
 ?>  
 </html>
 
 <!-- 
     using arrays in strings need the period ( . )
-    syntax of foreach() loop: 
-
-        foreach ($array as $value) {
-            code to be executed;
-        }
-
-        works only on arrays, used to loop through each key/value pair in associative array
 -->
 
 <!-- 
+    the 2-d array contains 3 arrays & 2 indices: row and column
 -->
 
 <!-- 
