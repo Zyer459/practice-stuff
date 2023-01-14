@@ -23,7 +23,11 @@
 /**EXAMPLE: */
 
 $cars = array ("Audi", "BMW", "Ford");
+$cars[2] = "Toyota";
 echo "I like $cars[0], $cars[1] and $cars[2].";
+echo "<br>";
+
+echo "thats a total of ".count($cars). " cars";
 
 ?>  
 </html>
