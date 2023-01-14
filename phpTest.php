@@ -11,9 +11,8 @@
                 $_COOKIE
                 $_SESSION
 
-                PHP $GLOBALS: $GLOBALS is a PHP super global variable which is used to access global variables from anywhere in the PHP script 
-                (also from within functions or methods).
-                PHP stores all global variables in an array called $GLOBALS[index]. The index holds the name of the variable.
+                PHP $_SERVER: its a super global variable which holds info about headers, path and script locations.
+
 
 -->
 
@@ -30,23 +29,25 @@
 </body>
 
 <?php
-/**EXAMPLE: below is an example of $GLOBALS*/
+/**EXAMPLE: The example below shows how to use some of the elements in $_SERVER */
 
-$x = 75;
-$y = 25;
- 
-function addition() {
-  $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y'];// the names are in string
-}
- 
-addition();
-echo $z;
+echo $_SERVER['PHP_SELF'];
+echo "<br>";
+echo $_SERVER['SERVER_NAME'];
+echo "<br>";
+echo $_SERVER['HTTP_HOST'];
+echo "<br>";
+echo $_SERVER['HTTP_REFERER']; //gives warning if used on localhost
+echo "<br>";
+echo $_SERVER['HTTP_USER_AGENT'];
+echo "<br>";
+echo $_SERVER['SCRIPT_NAME'];
 
 ?>  
 </html>
 
 <!-- 
-    In the example above, since z is a variable present within the $GLOBALS array, it is also accessible from outside the function!
+    https://www.w3schools.com/php/php_superglobals_server.asp
 -->
 
 <!-- 
