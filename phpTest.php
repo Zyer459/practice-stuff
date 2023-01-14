@@ -11,7 +11,7 @@
                 $_COOKIE
                 $_SESSION
 
-                PHP $_SERVER: its a super global variable which holds info about headers, path and script locations.
+                PHP $_REQUEST: its a php super global variable which is used to collect data after submitting an HTML form
 
 
 -->
@@ -29,25 +29,27 @@
 </body>
 
 <?php
-/**EXAMPLE: The example below shows how to use some of the elements in $_SERVER */
+/**EXAMPLE:  The example below shows a form with an input field and a submit button.
+ * When a user submits the data by clicking on "Submit", the form data is sent to the file specified in the action attribute of the <form> tag.
+ * In this example, we point to this file itself for processing form data.
+ * If you wish to use another PHP file to process form data, replace that with the filename of your choice.
+ * Then, we can use the super global variable $_REQUEST to collect the value of the input field.
+*/
+?>
 
-echo $_SERVER['PHP_SELF'];
-echo "<br>";
-echo $_SERVER['SERVER_NAME'];
-echo "<br>";
-echo $_SERVER['HTTP_HOST'];
-echo "<br>";
-echo $_SERVER['HTTP_REFERER']; //gives warning if used on localhost
-echo "<br>";
-echo $_SERVER['HTTP_USER_AGENT'];
-echo "<br>";
-echo $_SERVER['SCRIPT_NAME'];
+<form method="get" action="<?php echo $_SERVER['PHP_SELF'];?>"><!-- can replace the current action attribute value with the name of the php file that will handle the request(can be this file) -->
+  Name: <input type="text" name="fname">
+  <input type="submit">
+</form>
+<?php
 
-?>  
+$name = $_REQUEST['fname'];//important -> the name inside [] must be same as the name of the input field
+echo $name;
+?>
+
 </html>
 
 <!-- 
-    https://www.w3schools.com/php/php_superglobals_server.asp
 -->
 
 <!-- 
