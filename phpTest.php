@@ -11,7 +11,8 @@
                 $_COOKIE
                 $_SESSION
 
-                PHP $_REQUEST: its a php super global variable which is used to collect data after submitting an HTML form
+                PHP $_POST/GET: these are 2 php super global variables, both collects user form data
+                $_POST hides URL parameters & $_GET does not. More in php forms
 
 
 -->
@@ -29,22 +30,43 @@
 </body>
 
 <?php
-/**EXAMPLE:  The example below shows a form with an input field and a submit button.
- * When a user submits the data by clicking on "Submit", the form data is sent to the file specified in the action attribute of the <form> tag.
- * In this example, we point to this file itself for processing form data.
- * If you wish to use another PHP file to process form data, replace that with the filename of your choice.
- * Then, we can use the super global variable $_REQUEST to collect the value of the input field.
-*/
+/**EXAMPLE: the example is as same as $_REQUEST*/
 ?>
 
-<form method="get" action="<?php echo $_SERVER['PHP_SELF'];?>"><!-- can replace the current action attribute value with the name of the php file that will handle the request(can be this file) -->
-  Name: <input type="text" name="fname">
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name:($_POST) <input type="text" name="fname">
   <input type="submit">
 </form>
-<?php
 
-$name = $_REQUEST['fname'];//important -> the name inside [] must be same as the name of the input field
-echo $name;
+<?php
+/**below is for POST method */
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // collect value of input field
+  $name = $_POST['fname'];
+  if (empty($name)) {
+    echo "Name is empty";
+  } else {
+    echo $name;
+  }
+}
+?>
+
+<form method="get" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name:($_GET) <input type="text" name="fname">
+  <input type="submit">
+</form>
+
+<?php
+/**below is for GET method */
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  // collect value of input field
+  $name = $_GET['fname'];
+  if (empty($name)) {
+    echo "Name is empty";
+  } else {
+    echo $name;
+  }
+}
 ?>
 
 </html>
