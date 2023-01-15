@@ -36,5 +36,8 @@ This means that it will replace HTML characters like < and > with &lt; and &gt;
  This prevents attackers from exploiting the code by injecting HTML or Javascript code (Cross-site Scripting attacks) in forms.
 -->
 
-<!-- 
+<!-- Note on PHP Form Security
+The $_SERVER["PHP_SELF"] variable can be used by hackers!
+If PHP_SELF is used in your page then a user can enter a slash (/) and then some Cross Site Scripting (XSS) commands to execute.
+
 -->
