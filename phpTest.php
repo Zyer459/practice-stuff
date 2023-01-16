@@ -23,6 +23,31 @@
     <input type="submit"/>
   </form>
   <h1>Your input:</h1>
+
+  <?php
+  $name = $email = $website = $comment = $gender = "";
+
+  $name = $_POST["Name"];
+  $email = $_POST["Email"];
+  $website = $_POST["Website"];
+  $comment = $_POST["Comment"];
+  $gender = $_POST["Gender"];
+  
+  $container = array ($name, $email, $website, $comment, $gender);
+
+  function test ($data) {
+    $data = trim((string) $data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+  for ($i = 0; $i < 5; $i++) {
+    echo test ($container[$i]);
+    echo "<br>";
+  }
+  
+  ?>
 </body>
 </html>
 
