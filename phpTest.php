@@ -57,4 +57,7 @@ echo "I have a $color shirt";
 -->
 
 <!-- 
+    note: 
+    Use require when the file is required by the application.
+    Use include when the file is not required and application should continue when file is not found.
 -->
