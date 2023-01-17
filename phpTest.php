@@ -18,34 +18,44 @@ $nameErr = $emailErr = $genderErr = $websiteErr = "";
 $name = $email = $gender = $comment = $website = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
+  if (empty($_POST["Name"])) {
     $nameErr = "Name is required";
   } else {
-    $name = test_input($_POST["name"]);
+    $name = test_input($_POST["Name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
+      $nameErr = "Only letters and white space allowed";
+    }
   }
   
-  if (empty($_POST["email"])) {
+  if (empty($_POST["Email"])) {
     $emailErr = "Email is required";
   } else {
-    $email = test_input($_POST["email"]);
+    $email = test_input($_POST["Email"]);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format";
+    }
   }
     
-  if (empty($_POST["website"])) {
+  if (empty($_POST["Website"])) {
     $website = "";
   } else {
-    $website = test_input($_POST["website"]);
+    $website = test_input($_POST["Website"]);
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+      $websiteErr = "Invalid URL";
+    }
   }
 
-  if (empty($_POST["comment"])) {
+  if (empty($_POST["Comment"])) {
     $comment = "";
   } else {
-    $comment = test_input($_POST["comment"]);
+    $comment = test_input($_POST["Comment"]);
   }
 
-  if (empty($_POST["gender"])) {
+  if (empty($_POST["Gender"])) {
     $genderErr = "Gender is required";
   } else {
-    $gender = test_input($_POST["gender"]);
+    $gender = test_input($_POST["Gender"]);
   }
 }
 
@@ -70,6 +80,17 @@ function test_input($data) {
     <input type="submit"/>
   </form>
   <h1>Your input:</h1>
+  <?php
+echo "Name: $name";
+echo "<br>";
+echo "Email: $email";
+echo "<br>";
+echo "Website: $website";
+echo "<br>";
+echo "Comment: $comment";
+echo "<br>";
+echo "Gender: $gender";
+?>
 
 </body>
 </html>
