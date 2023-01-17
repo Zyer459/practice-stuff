@@ -1,24 +1,22 @@
 <!--  
-PHP ADVANCED: PHP include or require
-    The include (or require) statement takes all the text/code/markup that exists in the specified file and copies it into the file that uses the include statement.
-    Including files is very useful when you want to include the same PHP, HTML, or text on multiple pages of a website.
-    syntax: include 'filename'; or require 'filename';
+PHP ADVANCED: PHP file handling
+            PHP has several functions for creating, reading, uploading, and editing files.
+            Be careful when manipulating files!
+            Common errors are: editing the wrong file, filling a hard-drive with garbage data, 
+            and deleting the content of a file by accident.
+            The readfile() function reads a file and writes it to the output buffer.
 -->
 
 <!-- 
-PHP include and require Statements: It is possible to insert the content of one PHP file into another PHP file (before the server executes it), 
-    with the include or require statement.
-
-    The include and require statements are identical, except upon failure:
-    require will produce a fatal error (E_COMPILE_ERROR) and stop the script from executing
-    include will only produce a warning (E_WARNING) and the script will continue
-
-    So, if you want the execution to go on and show users the output, even if the include file is missing, use the include statement.
-    Otherwise, always use the require statement to include a key file to the flow of execution.
-    This will help avoid compromising your application's security and integrity, just in-case one key file is accidentally missing.
-
-    Including files saves a lot of work. This means that you can create a standard header, footer, or menu file for all your web pages.
-    Then, when the header needs to be updated, you can only update the header include file.
+content of the file:
+  Assume we have a text file called "webdictionary.txt", stored on the server, that looks like this:
+  AJAX = Asynchronous JavaScript and XML
+  CSS = Cascading Style Sheets
+  HTML = Hyper Text Markup Language
+  PHP = PHP Hypertext Preprocessor
+  SQL = Structured Query Language
+  SVG = Scalable Vector Graphics
+  XML = EXtensible Markup Language
 -->
 
 <!DOCTYPE html>
@@ -30,34 +28,19 @@ PHP include and require Statements: It is possible to insert the content of one 
     <title>php document</title>
 </head>
 <body>
-    <h1>Welcome to my home page!</h1>
 <?php
-/**execute echo statement even if file is missing */
-    include 'noFileExists.php';
-    echo "I have a $color car";
-?>
-<br>
-<br>
-<br>
-<?php
-/**stop the execution of php script entirely/completely */
-require "thisFileDoesn'tExistEither";
-echo "I have a $color shirt";
+/**The PHP code to read the file and write it to the output buffer is as follows
+* (the readfile() function returns the number of bytes read on success): */
+echo readfile("webdictionary.txt");
 ?>
 </body>
 </html>
 <!-- 
-    using the include statement below the warnings see that the script executes though there is missing file
+    The readfile() function is useful if all you want to do is open up a file and read its contents.
 -->
 
 <!-- 
-    If we do the same example using the require statement,
-    the echo statement will not be executed because the
-    script execution dies after the require statement returns a fatal error
 -->
 
 <!-- 
-    note: 
-    Use require when the file is required by the application.
-    Use include when the file is not required and application should continue when file is not found.
 -->
