@@ -1,4 +1,4 @@
-<!--  PHP FORM COMPLETE:
+<!--  PHP FORM COMPLETE: completed
 -->
 
 <!DOCTYPE html>
@@ -70,13 +70,23 @@ function test_input($data) {
   <h1>PHP complete form example</h1>
   <p class="required">* required field</p>
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-    Name: <input type="text" name="Name"/> <span class="required">* <?php echo $nameErr;?></span>
-    E-mail: <input type="text" name="Email"/> <span class="required">* <?php echo $emailErr;?></span>
-    Website: <input type="text" name="Website"/> <span class="required"> <?php echo $websiteErr;?></span>
-    Comment: <textarea name="Comment" rows="3" cols="30"></textarea>
+    Name: <input type="text" name="Name" value="<?php echo $name;?>"/> <span class="required">* <?php echo $nameErr;?></span>
+    <br>
+    <br>
+    E-mail: <input type="text" name="Email" value="<?php echo $email;?>"/> <span class="required">* <?php echo $emailErr;?></span>
+    <br>
+    <br>
+    Website: <input type="text" name="Website" value="<?php echo $website;?>"/> <span class="required"> <?php echo $websiteErr;?></span>
+    <br>
+    <br>
+    Comment: <textarea name="Comment" rows="3" cols="30"><?php echo $comment;?></textarea>
+    <br>
+    <br>
     Gender: 
-    <input type="radio" name="Gender" value="Male"/> Male
-    <input type="radio" name="Gender" value="Female"/> Female <span class="required">* <?php echo $genderErr;?></span>
+    <input type="radio" name="Gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Male"/> Male
+    <input type="radio" name="Gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female"/> Female <span class="required">* <?php echo $genderErr;?></span>
+    <br>
+    <br>
     <input type="submit"/>
   </form>
   <h1>Your input:</h1>
