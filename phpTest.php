@@ -30,25 +30,30 @@ PHP include and require Statements: It is possible to insert the content of one 
     <title>php document</title>
 </head>
 <body>
-    <!-- example-2: assume that we have a menu called menu.php to include in multiple html files-->
-    <div>
-        <?php include "menu.php";?>
-    </div>
-    <h1>This is some text</h1>
-    <p>More text</p>
-    <p>More texttttttttttttttttttttt</p>
+    <h1>Welcome to my home page!</h1>
+<?php
+/**execute echo statement even if file is missing */
+    include 'noFileExists.php';
+    echo "I have a $color car";
+?>
+<br>
+<br>
+<br>
+<?php
+/**stop the execution of php script entirely/completely */
+require "thisFileDoesn'tExistEither";
+echo "I have a $color shirt";
+?>
 </body>
 </html>
 <!-- 
+    using the include statement below the warnings see that the script executes though there is missing file
 -->
 
 <!-- 
-below is the content of the file
-    echo '<a href="#">Home</a> -
-    <a href="/html/default.asp">HTML Tutorial</a> -
-    <a href="/css/default.asp">CSS Tutorial</a> -
-    <a href="/js/default.asp">JavaScript Tutorial</a> -
-    <a href="default.asp">PHP Tutorial</a>';
+    If we do the same example using the require statement,
+    the echo statement will not be executed because the
+    script execution dies after the require statement returns a fatal error
 -->
 
 <!-- 
