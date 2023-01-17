@@ -30,21 +30,25 @@ PHP include and require Statements: It is possible to insert the content of one 
     <title>php document</title>
 </head>
 <body>
-    <!-- example-1: assume that we have a standard footer to include in multiple html files-->
-    <h1>Welcome to my home page!</h1>
-    <p>Some text.</p>
-    <p>Some more text.</p>
-    <?php include 'footer.php';?> <!-- here the footer file doesn't really exist its just for example -->
+    <!-- example-2: assume that we have a menu called menu.php to include in multiple html files-->
+    <div>
+        <?php include "menu.php";?>
+    </div>
+    <h1>This is some text</h1>
+    <p>More text</p>
+    <p>More texttttttttttttttttttttt</p>
 </body>
 </html>
 <!-- 
-    since the file doesn't exist the include statement returns a warning
 -->
 
-<!-- below is the content of the footer .php file
-<php
-echo "<p>Copyright &copy; 1999-" . date("Y") . " W3Schools.com</p>";
->
+<!-- 
+below is the content of the file
+    echo '<a href="#">Home</a> -
+    <a href="/html/default.asp">HTML Tutorial</a> -
+    <a href="/css/default.asp">CSS Tutorial</a> -
+    <a href="/js/default.asp">JavaScript Tutorial</a> -
+    <a href="default.asp">PHP Tutorial</a>';
 -->
 
 <!-- 
