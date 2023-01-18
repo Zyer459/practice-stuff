@@ -9,8 +9,13 @@ if(isset($_POST["submit"])) {
   if($check !== false) {
     echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
-  } else {
+} else {
     echo "File is not an image.";
+    $uploadOk = 0;
+}
+// Check if file already exists
+  if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
     $uploadOk = 0;
   }
 }
