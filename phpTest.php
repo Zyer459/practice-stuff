@@ -24,6 +24,9 @@ PHP ADVANCED: PHP file handling
         3) Create The Upload File PHP Script: The "upload.php" file contains the code for uploading a file
         4) Check if File Already Exists: First, we will check if the file already exists in the "uploads" folder.
             If it does, an error message is displayed, and $uploadOk is set to 0
+        5) Limit File Size: The file input field in our HTML form above is named "fileToUpload".
+           Now, we want to check the size of the file.
+           If the file is larger than 500KB, an error message is displayed, and $uploadOk is set to 0:
 -->
 
 <!DOCTYPE html>
