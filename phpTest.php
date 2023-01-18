@@ -67,4 +67,13 @@ The first parameter of fopen() contains the name of the file to be opened
 -->
 
 <!-- 
+  functions: 
+  fopen() - opens up a file
+  fread() - reads from a file, The first parameter of fread() contains the name of the file to read from
+            and the second parameter specifies the maximum number of bytes to read.
+  fclose() - closes an opened up file
+  fgets()  - used to read a single line from a file {Note: After a call to the fgets() function, the file pointer has moved to the next line}
+  feof() - checks if the "end-of-file" (EOF) has been reached. function is useful for looping through data of unknown length.
+           reads document file line by line until the end is reached
+  fgetc() - used to read a single character from a file {Note: After a call to the fgetc() function, the file pointer moves to the next character}
 -->
