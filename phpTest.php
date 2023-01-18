@@ -11,25 +11,17 @@ PHP ADVANCED: PHP file handling
 -->
 
 <!-- 
-  the fopen() is also used to create a file as well as open a file
-  example  -  $myfile = fopen("testfile.txt", "w");
-  wills create a file if it doesn't exist if the file is opened for writting("w")/appending("a")
+  PHP file upload: with php its easy to upload files to the server
+  but always be careful to allow file uploads
+-->
 
-  The fwrite() function is used to write to a file.
-  The first parameter of fwrite() contains the name of the file to write to and
-  the second parameter is the string to be written.
-  example -  $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-             $txt = "John Doe\n";
-             fwrite($myfile, $txt);
-             $txt = "Jane Doe\n";
-             fwrite($myfile, $txt);
-             fclose($myfile);
-  Notice that we wrote to the file "newfile.txt" twice.
-  Each time we wrote to the file we sent the string $txt that first contained "John Doe" and second contained "Jane Doe".
-  After we finished writing, we closed the file using the fclose() function.
+<!--
+  Steps:
+        1) Configure The "php.ini" File: First, ensure that PHP is configured to allow file uploads.
+          In your "php.ini" file, search for the file_uploads directive, and set it to On
 
-  using "w" mode & overwritting deletes all previous existing data 
-  append "a" mode appends some data to the existing file
+        2) create the html form: Next, create an HTML form that allow users to choose the image file they want to upload
+        3) Create The Upload File PHP Script: The "upload.php" file contains the code for uploading a file
 -->
 
 <!DOCTYPE html>
@@ -41,12 +33,11 @@ PHP ADVANCED: PHP file handling
     <title>php document</title>
 </head>
 <body>
-<?php
-/**example also generates a message if the fopen() function is unable to open the specified file:*/
-$myFile = fopen ("webdictionary.txt", "r") or die ("Unable to open file");
-echo fread($myFile,filesize("webdictionary.txt"));
-fclose($myFile);
-?>
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    Select an image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload"/>
+    <input type="submit" value="upload image" name="submit"/>
+  </form>
 </body>
 </html>
 <!-- 
