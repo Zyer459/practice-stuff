@@ -13,7 +13,7 @@ PHP ADVANCED: PHP SESSIONS -> a session is a way to store info as variables to b
 
 <!--
 -->
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +24,7 @@ PHP ADVANCED: PHP SESSIONS -> a session is a way to store info as variables to b
 </head>
 <body>
   <?php
+  include "demo_session2.php";
   ?>
 </body>
 </html>
@@ -39,4 +40,5 @@ PHP ADVANCED: PHP SESSIONS -> a session is a way to store info as variables to b
 -->
 
 <!-- 
+  Important! use include or require to use the session files
 -->
