@@ -8,6 +8,7 @@ PHP ADVANCED: PHP SESSIONS -> a session is a way to store info as variables to b
 <!-- 
   START A PHP SESSION: start a session with startsession() func
     1) create a new page called demo_session1.php here start a new php session and set some session variables
+    2) Next, we create another page called "demo_session2.php". From this page, we will access the session information
 -->
 
 <!--
@@ -28,9 +29,13 @@ PHP ADVANCED: PHP SESSIONS -> a session is a way to store info as variables to b
 </html>
 
 <!-- 
+  Note: The session_start() function must be the very first thing in your document. Before any HTML tags.
 -->
 
 <!-- 
+  Notice that session variables are not passed individually to each new page,
+  instead they are retrieved from the session we open at the beginning of each page (session_start()).
+  Also notice that all session variable values are stored in the global $_SESSION variable
 -->
 
 <!-- 
