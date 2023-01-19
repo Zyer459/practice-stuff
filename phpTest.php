@@ -35,12 +35,11 @@ PHP ADVANCED: PHP COOKIES -> cookie is a small file that the server embeds on th
    * then retrive the cookie (using the $_COOKIE super global) also use isset() to check if the cookie is set
    */
 
-   if (!isset($_COOKIE[$cookie_name])) {
-    echo "cookie named $cookie_name is not set";
+   if (count($_COOKIE) > 0) {
+    echo "cookies are enabled";
    }
    else {
-    echo "cookie $cookie_name is set";
-    echo "value is ". $_COOKIE[$cookie_name];
+    echo "cookies are disabled";
    }
   ?>
 </body>
