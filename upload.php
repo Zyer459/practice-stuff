@@ -25,6 +25,11 @@ if(isset($_POST["submit"])) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
   }
+// allow certain file types
+  if ($imageFileType !== "jpg" && $imageFileType !== "jepg" && $imageFileType !== "png" && $imageFileType !== "gif") {
+    echo "Sorry only jpg, jepg, png and gif files are allowed";
+    $uploadOk = 0; 
+  }
 }
 
 /**the script explained:

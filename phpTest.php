@@ -26,7 +26,9 @@ PHP ADVANCED: PHP file handling
             If it does, an error message is displayed, and $uploadOk is set to 0
         5) Limit File Size: The file input field in our HTML form above is named "fileToUpload".
            Now, we want to check the size of the file.
-           If the file is larger than 500KB, an error message is displayed, and $uploadOk is set to 0:
+           If the file is larger than 500KB, an error message is displayed, and $uploadOk is set to 0
+        6) Limit file type: The code below only allows users to upload JPG, JPEG, PNG, and GIF files
+           All other file types gives an error message before setting $uploadOk to 0
 -->
 
 <!DOCTYPE html>
