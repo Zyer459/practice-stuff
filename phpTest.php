@@ -1,38 +1,26 @@
 <!--  
-PHP ADVANCED: PHP file handling
-            PHP has several functions for creating, reading, uploading, and editing files.
-            Be careful when manipulating files!
-            Common errors are: editing the wrong file, filling a hard-drive with garbage data, 
-            and deleting the content of a file by accident.
-            The readfile() function reads a file and writes it to the output buffer.
+PHP ADVANCED: PHP COOKIES -> cookie is a small file that the server embeds on the user's computer to identify the user's computer
+              Each time the same computer requests a page with a browser, it will send the cookie too.
+              With PHP, you can both create and retrieve cookie values.
+              use the setcookie() function to create a cookie
 
-             better method to open files is with the fopen() function.
-             This function gives you more options than the readfile() function.
+              SYNTAX -> setcookie(name, value, expire, path, domain, secure, httponly); only the name parameter is required, others are optional.
 -->
 
 <!-- 
-  PHP file upload: with php its easy to upload files to the server
-  but always be careful to allow file uploads
 -->
 
 <!--
-  Steps:
-        1) Configure The "php.ini" File: First, ensure that PHP is configured to allow file uploads.
-          In your "php.ini" file, search for the file_uploads directive, and set it to On
-
-        2) create the html form: Next, create an HTML form that allow users to choose the image file they want to upload
-        3) Create The Upload File PHP Script: The "upload.php" file contains the code for uploading a file
-        4) Check if File Already Exists: First, we will check if the file already exists in the "uploads" folder.
-            If it does, an error message is displayed, and $uploadOk is set to 0
-        5) Limit File Size: The file input field in our HTML form above is named "fileToUpload".
-           Now, we want to check the size of the file.
-           If the file is larger than 500KB, an error message is displayed, and $uploadOk is set to 0
-        6) Limit file type: The code below only allows users to upload JPG, JPEG, PNG, and GIF files
-           All other file types gives an error message before setting $uploadOk to 0
 -->
 
 <!DOCTYPE html>
 <html lang="en">
+  <?php
+  $cookie_name = "user";
+  $cookie_value = "Zyer459";
+  $cookie_time = (time() + (3600 * 24 * 30));
+  setcookie($cookie_name, $cookie_value, $cookie_time, "/");
+  ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,14 +28,26 @@ PHP ADVANCED: PHP file handling
     <title>php document</title>
 </head>
 <body>
-  <form action="upload.php" method="post" enctype="multipart/form-data">
-    Select an image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload"/>
-    <input type="submit" value="upload image" name="submit"/>
-  </form>
+  <?php
+  /**the following creates a cookie & retrives it
+   * which will expire in 30 days
+   * " / " the backslash means that the cookie is available in the entire website (otherwise select a prefered directory)
+   * then retrive the cookie (using the $_COOKIE super global) also use isset() to check if the cookie is set
+   */
+
+   if (!isset($_COOKIE[$cookie_name])) {
+    echo "cookie named $cookie_name is not set";
+   }
+   else {
+    echo "cookie $cookie_name is set";
+    echo "value is ". $_COOKIE[$cookie_name];
+   }
+  ?>
 </body>
 </html>
+
 <!-- 
+  Note: the cookie must be set before the <html> tag
 -->
 
 <!-- 
