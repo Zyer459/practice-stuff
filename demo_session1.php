@@ -16,6 +16,13 @@ session_start();
     $_SESSION["favcolor"] = "grey";
     $_SESSION["favanimal"] = "cat";
     echo "session variables are set";
+
+    /**MODIFY SESSION VARIABLES
+     * To change a session variable, just overwrite it
+     * DESTROY SESSION
+     * To remove all global session variables and destroy the session,
+     * use session_unset() and session_destroy()
+     */
     ?>
 </body>
 </html>

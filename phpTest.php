@@ -25,6 +25,7 @@ PHP ADVANCED: PHP SESSIONS -> a session is a way to store info as variables to b
 <body>
   <?php
   include "demo_session2.php";
+  print_r($_SESSION); // Another way to show all the session variable values for a user session is to run the following code
   ?>
 </body>
 </html>
