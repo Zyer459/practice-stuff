@@ -4,9 +4,13 @@ PHP ADVANCED: PHP CALLBACK -> A callback function (often referred to as just "ca
     Any existing function can be used as a callback function.
     To use a function as a callback function,
     pass a string containing the name of the function as the argument of another function
-
 -->
+
 <!-- 
+  Callbacks in User Defined Functions
+     User-defined functions and methods can also take callback functions as arguments.
+     To use callback functions inside a user-defined function or method,
+     call it by adding parentheses to the variable and pass arguments as with normal functions
 -->
 
 <!--
@@ -21,15 +25,25 @@ PHP ADVANCED: PHP CALLBACK -> A callback function (often referred to as just "ca
 </head>
 <body>
 <?php
-/** Pass a callback to PHP's array_map() function to calculate the length of every string in an array*/
+/** Example: Run a callback from a user-defined function*/
 
-function my_callback($item) {
-  return strlen($item);
+function exclaim($str) {
+  return $str . "! ";
 }
 
-$strings = ["apple", "orange", "banana", "coconut"];
-$lengths = array_map("my_callback", $strings);// for JS it("my_callback") would be as -> my_callback()
-print_r($lengths);
+function ask($str) {
+  return $str . "? ";
+}
+
+function printFormatted($str, $format) {
+  // Calling the $format callback function
+  echo $format($str);
+}
+
+// Pass "exclaim" and "ask" as callback functions to printFormatted()
+printFormatted("Hello world", "exclaim");
+printFormatted("Hello world", "ask");
+
 ?>
 </body>
 </html>
