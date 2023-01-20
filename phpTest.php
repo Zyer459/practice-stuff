@@ -11,7 +11,8 @@ PHP ADVANCED: PHP JSON -> JSON stands for JavaScript Object Notation, and is a s
 -->
 
 <!--
-  PHP - Accessing the Decoded Values: 
+  PHP - Looping Through the Values
+  You can also loop through the values with a foreach() loop:
 -->
 
 <!DOCTYPE html>
@@ -24,19 +25,27 @@ PHP ADVANCED: PHP JSON -> JSON stands for JavaScript Object Notation, and is a s
 </head>
 <body>
 <?php
-/** Example: This example shows how to access the values from a PHP associative array:*/
+/** Example: This example shows how to loop through the values of a PHP object */
 
 $age = array ("Peter" => 35, "Ben" => 37, "Joe" => 41);
 $json_obj = json_encode ($age); // encode & set the json obj to a variable
-$arr = json_decode($json_obj, true); // decode
+$obj = json_decode($json_obj); // decodes as obj
 
-echo $arr ["Peter"];
+foreach($obj as $key => $value) {
+  echo $key . " => " . $value . "<br>";
+}
+
+echo "<br>";
+echo "<br>";
 echo "<br>";
 
-echo $arr ["Ben"];
-echo "<br>";
+/**This example shows how to loop through the values of a PHP associative array: */
 
-echo $arr ["Joe"];
+$arr = json_decode($json_obj, true); // decodes as associative array
+
+foreach($arr as $key => $value) {
+  echo $key . " => " . $value . "<br>";
+}
 
 ?>
 </body>
