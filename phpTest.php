@@ -21,14 +21,14 @@ PHP ADVANCED: PHP FILTER -> filters are used to validate & sanitize external inp
 </head>
 <body>
 <?php
-$int = 122;
-$min = 1;
-$max = 200;
+// Variable to check
+$ip = "2001:0db8:85a3:08d3:1319:8a2e:0370:7334";
 
-if (filter_var($int, FILTER_VALIDATE_INT, array("options" => array("min_range"=>$min, "max_range"=>$max))) === false) {
-  echo("Variable value is not within the legal range");
+// Validate ip as IPv6
+if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
+  echo("$ip is a valid IPv6 address");
 } else {
-  echo("Variable value is within the legal range");
+  echo("$ip is not a valid IPv6 address");
 }
 ?>
 </body>
