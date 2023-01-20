@@ -24,19 +24,19 @@ PHP ADVANCED: PHP JSON -> JSON stands for JavaScript Object Notation, and is a s
 </head>
 <body>
 <?php
-/** Example: This example shows how to access the values from a PHP object:*/
+/** Example: This example shows how to access the values from a PHP associative array:*/
 
 $age = array ("Peter" => 35, "Ben" => 37, "Joe" => 41);
 $json_obj = json_encode ($age); // encode & set the json obj to a variable
-$obj = json_decode($json_obj); // decode
+$arr = json_decode($json_obj, true); // decode
 
-echo $obj->Peter;
+echo $arr ["Peter"];
 echo "<br>";
 
-echo $obj->Ben;
+echo $arr ["Ben"];
 echo "<br>";
 
-echo $obj->Joe;
+echo $arr ["Joe"];
 
 ?>
 </body>
