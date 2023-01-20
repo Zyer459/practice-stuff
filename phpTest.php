@@ -11,7 +11,6 @@ PHP ADVANCED: PHP FILTER -> filters are used to validate & sanitize external inp
 
 <!--
 -->
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +20,17 @@ PHP ADVANCED: PHP FILTER -> filters are used to validate & sanitize external inp
     <title>php document</title>
 </head>
 <body>
+<?php
+$int = 122;
+$min = 1;
+$max = 200;
+
+if (filter_var($int, FILTER_VALIDATE_INT, array("options" => array("min_range"=>$min, "max_range"=>$max))) === false) {
+  echo("Variable value is not within the legal range");
+} else {
+  echo("Variable value is within the legal range");
+}
+?>
 </body>
 </html>
 
