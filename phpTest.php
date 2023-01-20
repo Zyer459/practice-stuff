@@ -1,12 +1,12 @@
 <!--  
-PHP ADVANCED: PHP FILTER -> filters are used to validate & sanitize external input
-                           such as-> User input from a form, cookies, web services data, server variables, database query results
--->
+PHP ADVANCED: PHP CALLBACK -> A callback function (often referred to as just "callback")
+    is a function which is passed as an argument into another function.
+    Any existing function can be used as a callback function.
+    To use a function as a callback function,
+    pass a string containing the name of the function as the argument of another function
 
+-->
 <!-- 
-  the filter_var() function can both validate & sanitize data. It has 2 parameters 
-  1) the variable you want to check
-  2) the type of check to use
 -->
 
 <!--
@@ -21,23 +21,29 @@ PHP ADVANCED: PHP FILTER -> filters are used to validate & sanitize external inp
 </head>
 <body>
 <?php
-/** The following example uses the filter_var() function to check if the variable $url is a URL with a querystring*/
-$url = "https://www.microsoft.com"; // try a url with parameters like the url when playing a youtube video
+/** Pass a callback to PHP's array_map() function to calculate the length of every string in an array*/
 
-if (!filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED) === false) {
-  echo("$url is a valid URL with a query string");
-} else {
-  echo("$url is not a valid URL with a query string");
+function my_callback($item) {
+  return strlen($item);
 }
+
+$strings = ["apple", "orange", "banana", "coconut"];
+$lengths = array_map("my_callback", $strings);// for JS it("my_callback") would be as -> my_callback()
+print_r($lengths);
 ?>
 </body>
 </html>
 
 <!-- 
-  url with a query string means the url with url parameters
+  unlike JS  in PHP a callback is passed in argument as a string name of the function 
 -->
 
 <!-- 
+  Starting with version 7, PHP can pass anonymous functions as callback functions
+  for example:
+    $strings = ["apple", "orange", "banana", "coconut"];
+$lengths = array_map( function($item) { return strlen($item); } , $strings);
+print_r($lengths);
 -->
 
 <!-- 
