@@ -21,20 +21,20 @@ PHP ADVANCED: PHP FILTER -> filters are used to validate & sanitize external inp
 </head>
 <body>
 <?php
-// Variable to check
-$ip = "2001:0db8:85a3:08d3:1319:8a2e:0370:7334";
+/** The following example uses the filter_var() function to check if the variable $url is a URL with a querystring*/
+$url = "https://www.microsoft.com"; // try a url with parameters like the url when playing a youtube video
 
-// Validate ip as IPv6
-if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
-  echo("$ip is a valid IPv6 address");
+if (!filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED) === false) {
+  echo("$url is a valid URL with a query string");
 } else {
-  echo("$ip is not a valid IPv6 address");
+  echo("$url is not a valid URL with a query string");
 }
 ?>
 </body>
 </html>
 
 <!-- 
+  url with a query string means the url with url parameters
 -->
 
 <!-- 
