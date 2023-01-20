@@ -7,11 +7,13 @@ PHP ADVANCED: PHP JSON -> JSON stands for JavaScript Object Notation, and is a s
 -->
 
 <!-- 
-  json_encode() is used to a value to JSON format
+  json_encode() is used to encode a value to JSON format
 -->
 
 <!--
+  PHP - Accessing the Decoded Values: 
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,31 +24,20 @@ PHP ADVANCED: PHP JSON -> JSON stands for JavaScript Object Notation, and is a s
 </head>
 <body>
 <?php
-/** Example: This example shows how to encode an associative array into a JSON object*/
+/** Example: This example shows how to access the values from a PHP object:*/
 
 $age = array ("Peter" => 35, "Ben" => 37, "Joe" => 41);
-echo json_encode($age);
+$json_obj = json_encode ($age); // encode & set the json obj to a variable
+$obj = json_decode($json_obj); // decode
 
-echo "<br>";
-echo "<br>";
-
-$cars = array ("Audi", "BMW", "Toyota"); // this example encodes an indexed array
-echo json_encode($cars);
-
-echo "<br>";
+echo $obj->Peter;
 echo "<br>";
 
-$json_obj = json_encode ($age); // set the json obj to a variable
-var_dump(json_decode($json_obj)); // decode and show the json obj
-
-/**The json_decode() function returns an object by default.
- * The json_decode() function has a second parameter, and when set to true, JSON objects are decoded into associative arrays
-*/
-
-echo "<br>";
+echo $obj->Ben;
 echo "<br>";
 
-var_dump(json_decode($json_obj, true)); //this gives an associative array
+echo $obj->Joe;
+
 ?>
 </body>
 </html>
