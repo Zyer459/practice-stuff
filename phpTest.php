@@ -90,9 +90,19 @@ In the example below, $apple and $banana are instances of the class Fruit
 </html>
 
 <!--  
+  PHP - instanceof:
+                  You can use the instanceof keyword to check if an object belongs to a specific class
+                  Example:
+                  $apple = new Fruit();
+                  var_dump($apple instanceof Fruit);
 -->
 
 <!-- 
+  PHP - The $this Keyword
+  The $this keyword refers to the current object, and is only available inside methods.
+  there are 2 ways to change properties in class/objects
+  1) Inside the class (by adding a set_name() method and use $this)
+  2) Outside the class (by directly changing the property value)
 -->
 
 <!-- 
