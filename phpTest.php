@@ -29,16 +29,17 @@ class Fruit {
     public $name;
     public $color;
 
-    function __construct($name) {
+    function __construct($name, $color) { //new parameter
         $this->name = $name;
+        $this->color = $color;// new lone
     }
     function __destruct()
     {
-        echo "The fruit is {$this->name}.";
+        echo "The fruit is {$this->name}, and its color is {$this->color}";
     }
 }
 
-$apple = new Fruit("Apple");
+$apple = new Fruit("Apple", "red");//new arg
 ?>
 </body>
 </html>
