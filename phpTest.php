@@ -1,9 +1,9 @@
-<!-- PHP OOP - ACCESS MODIFIERS
-               Properties and methods can have access modifiers which control where they can be accessed.
-            There are three access modifiers:
-            public - the property or method can be accessed from everywhere. This is default
-            protected - the property or method can be accessed within the class and by classes derived from that class
-            private - the property or method can ONLY be accessed within the class
+<!-- PHP OOP - INHERITANCE
+               Inheritance in OOP = When a class derives from another class.
+               The child class will inherit all the public and protected properties and methods from the parent class.
+               In addition, it can have its own properties and methods.
+               An inherited class is defined by using the extends keyword.
+            
 
 -->
 
@@ -23,51 +23,41 @@
 </head>
 <body>
 <?php
-/**Example: In the following example we have added three different access modifiers to three properties
- * (name, color, and weight). Here, if you try to set the name property it will work fine (because the name property is public, and can be accessed from everywhere)
- * However, if you try to set the color or weight property it will result in a fatal error (because the color and weight property are protected and private)
+/**Example:
 */
 
 class Fruit {
     public $name;
-    protected $color;
-    private $weight;
-}
-
-$mango = new Fruit();
-
-$mango->name = "Mango"; //set name property
-$mango->color = "Yellow"; //set color this throws an ERROR as undefined property
-$mango->weight = '300'; // this throws an ERROR as undefined property
-
-//this is because we have no access to those properties same can be said for functions
-
-class Fruit2 {
-    public $name;
     public $color;
-    public $weight;
-  
-    function set_name($n) {  // a public function (default)
-      $this->name = $n;
+    public function __construct($name, $color) {
+      $this->name = $name;
+      $this->color = $color;
     }
-    protected function set_color($n) { // a protected function
-      $this->color = $n;
-    }
-    private function set_weight($n) { // a private function
-      $this->weight = $n;
+    public function intro() {
+      echo "The fruit is {$this->name} and the color is {$this->color}.";
     }
   }
   
-  $mango = new Fruit2();
-  $mango->set_name('Mango'); // OK
-  $mango->set_color('Yellow'); // ERROR
-  $mango->set_weight('300'); // ERROR
+  // Strawberry is inherited from Fruit
+  class Strawberry extends Fruit {
+    public function message() {
+      echo "Am I a fruit or a berry? ";
+    }
+  }
+  $strawberry = new Strawberry("Strawberry", "red");
+  $strawberry->message();
+  $strawberry->intro();
 
 ?>
 </body>
 </html>
 
 <!--  
+    Example Explained:
+        The Strawberry class is inherited from the Fruit class.
+        This means that the Strawberry class can use the public $name and $color properties
+        as well as the public __construct() and intro() methods from the Fruit class because of inheritance.
+        The Strawberry class also has its own method: message().
 -->
 
 <!-- 
