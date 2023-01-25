@@ -8,14 +8,11 @@
 -->
 
 <!-- 
-  PHP - Inheritance and the Protected Access Modifier
+  PHP - The final keyword:
+      The final keyword can be used to prevent class inheritance or to prevent method overriding.
 -->
 
 <!--
-  PHP - Overriding Inherited Methods:
-       Inherited methods can be overridden by redefining the methods (use the same name) in the child class.
-       Look at the example below. The __construct() and intro() methods in the child class (Strawberry) will override the
-       __construct() and intro() methods in the parent class (Fruit)
 -->
 
 <!DOCTYPE html>
@@ -28,42 +25,36 @@
 </head>
 <body>
 <?php
-/**Example: overriding protected access modifiers
-*/
+/*Example: The following example shows how to prevent class inheritance:*/
 
-class Fruit {
-    public $name;
-    public $color;
-    public function __construct($name, $color) {
-      $this->name = $name;
-      $this->color = $color;
-    }
-    protected function intro() {
-      echo "The fruit is {$this->name} and the color is {$this->color}.";
-    }
+final class Fruit {
+  // some code
+}
+
+// will result in error
+class Strawberry extends Fruit {
+  // some code
+}
+
+/**Example: The following example shows how to prevent method overriding: */
+
+class Fruit2 {
+  final public function intro() {
+    // some code
   }
+}
 
-  class Strawberry extends Fruit {
-    public $weight;
-    public function __construct($name, $color, $weight) {
-      $this->name =$name;
-      $this->color =$color;
-      $this->weight =$weight;
-    }
-    public function intro () {
-      echo "The fruit is {$this->name}, the color is {$this->color}, and the weight is {$this->weight} gram.";
-    }
+class Strawberry2 extends Fruit2 {
+  // will result in error
+  public function intro() {
+    // some code
   }
-
-  $strawberry = new Strawberry("Strawberry", "red", 50);
-  $strawberry->intro();
-
+}
 ?>
 </body>
 </html>
 
 <!--  
-    Example Explained: since the intro() is protected method from inside the derived class there is no error
 -->
 
 <!-- 
