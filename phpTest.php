@@ -8,6 +8,8 @@
 -->
 
 <!-- 
+  PHP - Inheritance and the Protected Access Modifier
+
 -->
 
 <!--
@@ -23,7 +25,9 @@
 </head>
 <body>
 <?php
-/**Example:
+/**Example: protected access modifiers
+ * In the example we see that if we try to call a protected method (intro()) from outside the class, we will receive an error.
+ * public methods will work fine!
 */
 
 class Fruit {
@@ -33,9 +37,9 @@ class Fruit {
       $this->name = $name;
       $this->color = $color;
     }
-    public function intro() {
+    protected function intro() {
       echo "The fruit is {$this->name} and the color is {$this->color}.";
-    }
+    } // changed the access modifier from public to protected
   }
   
   // Strawberry is inherited from Fruit
@@ -45,19 +49,15 @@ class Fruit {
     }
   }
   $strawberry = new Strawberry("Strawberry", "red");
-  $strawberry->message();
-  $strawberry->intro();
+  $strawberry->message(); // OK. message() is public
+  $strawberry->intro(); // ERROR. intro() is protected
 
 ?>
 </body>
 </html>
 
 <!--  
-    Example Explained:
-        The Strawberry class is inherited from the Fruit class.
-        This means that the Strawberry class can use the public $name and $color properties
-        as well as the public __construct() and intro() methods from the Fruit class because of inheritance.
-        The Strawberry class also has its own method: message().
+    Example Explained: since the intro() is protected function it throws error when called outside the class
 -->
 
 <!-- 
