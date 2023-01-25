@@ -1,15 +1,14 @@
-<!-- PHP OOP - INHERITANCE
-               Inheritance in OOP = When a class derives from another class.
-               The child class will inherit all the public and protected properties and methods from the parent class.
-               In addition, it can have its own properties and methods.
-               An inherited class is defined by using the extends keyword.
-            
+<!-- PHP CONSTANTS - Constants cannot be changed once it is declared.
+                    Class constants can be useful if you need to define some constant data within a class.
+                    A class constant is declared inside a class with the const keyword.
+                    Class constants are case-sensitive.
+                    However, it is recommended to name the constants in all uppercase letters.
+                    We can access a constant from outside the class
+                    by using the class name followed by the scope resolution operator (::) followed by the constant name
 
 -->
 
 <!-- 
-  PHP - The final keyword:
-      The final keyword can be used to prevent class inheritance or to prevent method overriding.
 -->
 
 <!--
@@ -25,31 +24,24 @@
 </head>
 <body>
 <?php
-/*Example: The following example shows how to prevent class inheritance:*/
+/**accessing constant from outside class */
 
-final class Fruit {
-  // some code
+class Goodbye {
+  const LEAVING_MESSAGE = "Thank you for visiting demo.com!";
 }
+echo Goodbye::LEAVING_MESSAGE;//accessing the constant outside the function
 
-// will result in error
-class Strawberry extends Fruit {
-  // some code
-}
+/**accessing constant from inside class */
 
-/**Example: The following example shows how to prevent method overriding: */
-
-class Fruit2 {
-  final public function intro() {
-    // some code
+class Goodbye2 {
+  const LEAVING_MESSAGE = "Thank you for visiting demo.com!";
+  public function byebye() {
+    echo self::LEAVING_MESSAGE;//accessing the function from inside the function
   }
 }
 
-class Strawberry2 extends Fruit2 {
-  // will result in error
-  public function intro() {
-    // some code
-  }
-}
+$goodbye = new Goodbye2();
+$goodbye->byebye();
 ?>
 </body>
 </html>
