@@ -9,7 +9,6 @@
 
 <!-- 
   PHP - Inheritance and the Protected Access Modifier
-
 -->
 
 <!--
@@ -26,8 +25,8 @@
 <body>
 <?php
 /**Example: protected access modifiers
- * In the example we see that if we try to call a protected method (intro()) from outside the class, we will receive an error.
- * public methods will work fine!
+ * In the example above we see that all works fine!
+ * It is because we call the protected method (intro()) from inside the derived class.
 */
 
 class Fruit {
@@ -46,18 +45,19 @@ class Fruit {
   class Strawberry extends Fruit {
     public function message() {
       echo "Am I a fruit or a berry? ";
+      // calling the method from inside the derived class - OK
+      $this->intro();
     }
   }
-  $strawberry = new Strawberry("Strawberry", "red");
-  $strawberry->message(); // OK. message() is public
-  $strawberry->intro(); // ERROR. intro() is protected
+  $strawberry = new Strawberry("Strawberry", "red"); // OK.  __construct() is public
+  $strawberry->message();  // OK. message() is public and it calls intro() (which is protected) from within the derived class
 
 ?>
 </body>
 </html>
 
 <!--  
-    Example Explained: since the intro() is protected function it throws error when called outside the class
+    Example Explained: since the intro() is protected method from inside the derived class there is no error
 -->
 
 <!-- 
