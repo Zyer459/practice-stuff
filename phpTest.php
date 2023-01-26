@@ -1,32 +1,27 @@
-<!-- PHP OOP - ABSTRACT CLASSES:
-            Abstract classes and methods are when the parent class has a named method,
-            but need its child class(es) to fill out the tasks.
-            An abstract class is a class that contains at least one abstract method
-            An abstract method is a method that is declared, but not implemented in the code.
-            An abstract class or method is defined with the abstract keyword
-
-            syntax
-            abstract class ParentClass {
-  abstract public function someMethod1();
-  abstract public function someMethod2($name, $color);
-  abstract public function someMethod3() : string;
+<!-- PHP OOP - INTERFACES:
+              Interfaces allow you to specify what methods a class should implement.
+              Interfaces make it easy to use a variety of different classes in the same way.
+              When one or more classes use the same interface, it is referred to as "polymorphism".
+              Interfaces are declared with the interface keyword
 }
 -->
 
 <!-- 
-  When inheriting from an abstract class, the child class method must be defined with the same name,
-  and the same or a less restricted access modifier.
-  So, if the abstract method is defined as protected,
-  the child class method must be defined as either protected or public, but not private.
-  Also, the type and number of required arguments must be the same.
-  However, the child classes may have optional arguments in addition.
+  syntax:
+        interface InterfaceName {
+  public function someMethod1();
+  public function someMethod2($name, $color);
+  public function someMethod3() : string;
+}
 -->
 
 <!--
-  So, when a child class is inherited from an abstract class, we have the following rules:
-  1) The child class method must be defined with the same name and it redeclares the parent abstract method
-  2) The child class method must be defined with the same or a less restricted access modifier
-  3) The number of required arguments must be the same. However, the child class may have optional arguments in addition
+  Interfaces vs. Abstract Classes:
+  Interface are similar to abstract classes. The difference between interfaces and abstract classes are:
+    1) Interfaces cannot have properties, while abstract classes can
+    2) All interface methods must be public, while abstract class methods is public or protected
+    3) All methods in an interface are abstract, so they cannot be implemented in code and the abstract keyword is not necessary
+    4) Classes can implement an interface while inheriting from another class at the same time
 -->
 
 <!DOCTYPE html>
@@ -39,38 +34,33 @@
 </head>
 <body>
 <?php
-/**EXAMPLE Let's look at another example where the abstract method has an argument,
- * and the child class has two optional arguments that are not defined in the parent's abstract method*/
+/**EXAMPLE: To implement an interface, a class must use the implements keyword.
+ * A class that implements an interface must implement all of the interface's methods.
+*/
 
- abstract class ParentClass {
-  // Abstract method with an argument
-  abstract protected function prefixName($name);
+interface Animal {
+  public function makeSound();
 }
 
-class ChildClass extends ParentClass {
-  // The child class may define optional arguments that are not in the parent's abstract method
-  public function prefixName($name, $separator = ".", $greet = "Dear") {
-    if ($name == "John Doe") {
-      $prefix = "Mr";
-    } elseif ($name == "Jane Doe") {
-      $prefix = "Mrs";
-    } else {
-      $prefix = "";
-    }
-    return "{$greet} {$prefix}{$separator} {$name}";
+class Cat implements Animal {
+  public function makeSound() {
+    echo "Meow";
   }
 }
 
-$class = new ChildClass;
-echo $class->prefixName("John Doe");
-echo "<br>";
-echo $class->prefixName("Jane Doe");
+$animal = new Cat();
+$animal->makeSound();
 
 ?>
 </body>
 </html>
 
 <!-- 
+  From the example above, let's say that we would like to write software which manages a group of animals.
+  There are actions that all of the animals can do, but each animal does it in its own way.
+  Using interfaces, we can write some code which can work for all of the animals even if each animal behaves differently
+  
+  see php interfaces-pt2
 -->
 
 <!-- 
