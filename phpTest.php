@@ -33,21 +33,37 @@ class MyClass {
 </head>
 <body>
 <?php
-/**EXAMPLE:
-*/
+/**EXAMPLE: using multiple traits */
 
+// create multiple traits
 trait message1 {
   public function msg1() {
-      echo "OOP is fun! ";
-    }
+    echo "OOP is fun!";
   }
-  
-  class Welcome {
-    use message1;
+}
+
+trait message2 {
+  public function msg2() {
+    echo "OOP reduces code duplication";
   }
-  
-  $obj = new Welcome();
-  $obj->msg1();
+}
+
+// create classes that use multiple traits
+class Welcome {
+  use message1;
+}
+
+class Welcome2 {
+  use message1, message2;
+}
+
+$obj = new Welcome;
+$obj -> msg1();
+echo "<br>";
+
+$obj2 = new Welcome2;
+$obj2 -> msg1();
+$obj2 -> msg2();
 
 ?>
 </body>
@@ -55,13 +71,10 @@ trait message1 {
 
 <!-- 
   Example Explained:
-                    Here, we declare one trait: message1.
-                    Then, we create a class: Welcome.
-                    The class uses the trait, and all the methods in the trait will be available in the class.
-                    If other classes need to use the msg1() function, simply use the message1 trait in those classes.
-                    This reduces code duplication, because there is no need to redeclare the same method over and over again.
-
-
+                  Here, we declare two traits: message1 and message2.
+                  Then, we create two classes: Welcome and Welcome2.
+                  The first class (Welcome) uses the message1 trait,
+                  and the second class (Welcome2) uses both message1 and message2 traits (multiple traits are separated by comma).
 -->
 
 <!-- 
