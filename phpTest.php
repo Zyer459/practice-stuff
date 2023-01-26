@@ -39,23 +39,25 @@
 </head>
 <body>
 <?php
-/**EXAMPLE Let's look at another example where the abstract method has an argument:*/
+/**EXAMPLE Let's look at another example where the abstract method has an argument,
+ * and the child class has two optional arguments that are not defined in the parent's abstract method*/
 
-abstract class ParentClass {
+ abstract class ParentClass {
   // Abstract method with an argument
   abstract protected function prefixName($name);
 }
 
 class ChildClass extends ParentClass {
-  public function prefixName($name) {
+  // The child class may define optional arguments that are not in the parent's abstract method
+  public function prefixName($name, $separator = ".", $greet = "Dear") {
     if ($name == "John Doe") {
-      $prefix = "Mr.";
+      $prefix = "Mr";
     } elseif ($name == "Jane Doe") {
-      $prefix = "Mrs.";
+      $prefix = "Mrs";
     } else {
       $prefix = "";
     }
-    return "{$prefix} {$name}";
+    return "{$greet} {$prefix}{$separator} {$name}";
   }
 }
 
