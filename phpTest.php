@@ -8,10 +8,8 @@
              
 -->
 
-<!-- More info: 
-                A class can have both static and non-static methods & properties.
-                A static method/property can be accessed from a method in the same class
-                using the 'self' keyword and double colon (::)
+<!-- More info (static property): 
+                To call a static property from a child class, use the 'parent' keyword inside the child class
 -->
 
 <!--
@@ -27,40 +25,32 @@
 </head>
 <body>
 <?php
-/**EXAMPLE: accessing static methods in the same class*/
-
-class greeting {
-  public static function Welcome () {
-    echo "Hello world";
-  }
-
-  public function __construct () {
-    self::Welcome();
-  }
-}
-new greeting();
-
-/**Example: accessing static properties in same class */
+/**EXAMPLE: accessing astatic property from a child class*/
 
 class pi {
-  public static $value=3.14159;
-  public function staticValue() {
-    return self::$value;
-  }
+  public static $value = 3.1416;
 }
 
-$pi = new pi();
-echo $pi->staticValue();
+//child class
+class x extends pi {
+  public function xStatic() {
+    return parent::$value;
+  }
+}
+// Get value of static property directly via child class
+echo x::$value;
+
+echo "<br>";
+
+// or get value of static property via xStatic() method
+$x = new x();
+echo $x->xStatic();
 
 ?>
 </body>
 </html>
 
 <!-- 
-  accessing static properties is different from accessing static methods
-
-  to access static property first assign the class to an object
-  then access the function through the obj
 -->
 
 <!-- 
