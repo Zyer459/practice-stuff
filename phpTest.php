@@ -1,26 +1,27 @@
-<!-- PHP OOP - TRAITS: What are Traits?
-              PHP only supports single inheritance: a child class can inherit only from one single parent.
-              So, what if a class needs to inherit multiple behaviors? OOP traits solve this problem.
-              Traits are used to declare methods that can be used in multiple classes.
-              Traits can have methods and abstract methods that can be used in multiple classes,
-              and the methods can have any access modifier (public, private, or protected).
-              Traits are declared with the trait keyword
+<!-- PHP OOP - STATIC METHODS & PROPERTIES: 
+                          Static methods & properties can be called directly - without creating an instance of the class first.
+                          Static methods & properties are declared with the 'static' keyword
+                          To access a static method/property use the class name, double colon (::), and the method/property name
+
+                          ClassName::staticMethod();
+                          ClassName::$staticProp;
              
 -->
 
 <!-- 
-  syntax: 
-         trait TraitName {
-  // some code...
-}
-
-To use a trait in a class, use the 'use' keyword:
-class MyClass {
-  use TraitName;
+  Syntax: static methods
+        class ClassName {
+  public static function staticMethod() {
+    echo "Hello World!";
+  }
 }
 -->
 
 <!--
+  Syntax: static property
+         class ClassName {
+  public static $staticProp = "Hello world";
+}
 -->
 
 <!DOCTYPE html>
@@ -33,51 +34,42 @@ class MyClass {
 </head>
 <body>
 <?php
-/**EXAMPLE: using multiple traits */
+/**EXAMPLE: static method*/
 
-// create multiple traits
-trait message1 {
-  public function msg1() {
-    echo "OOP is fun!";
+class greeting {
+  public static function welcome() {
+    echo "Hello World!";
   }
 }
 
-trait message2 {
-  public function msg2() {
-    echo "OOP reduces code duplication";
-  }
+// Call static method
+greeting::welcome();
+
+/**Example: static property */
+
+class pi {
+  public static $value = 3.1416;
 }
 
-// create classes that use multiple traits
-class Welcome {
-  use message1;
-}
-
-class Welcome2 {
-  use message1, message2;
-}
-
-$obj = new Welcome;
-$obj -> msg1();
-echo "<br>";
-
-$obj2 = new Welcome2;
-$obj2 -> msg1();
-$obj2 -> msg2();
+//get static property
+echo pi::$value;
 
 ?>
 </body>
 </html>
 
 <!-- 
-  Example Explained:
-                  Here, we declare two traits: message1 and message2.
-                  Then, we create two classes: Welcome and Welcome2.
-                  The first class (Welcome) uses the message1 trait,
-                  and the second class (Welcome2) uses both message1 and message2 traits (multiple traits are separated by comma).
+  Example Explained static method:
+                     Here, we declare a static method: welcome().
+                     Then, we call the static method by using the class name,
+                     double colon (::), and the method name (without creating an instance of the class first).
 -->
 
 <!-- 
+   Example Explained static property:
+                      Here, we declare a static property: $value.
+                      Then, we echo the value of the static property by using the class name,
+                      double colon (::), and the property name (without creating a class first).
 -->
 
 <!-- 
