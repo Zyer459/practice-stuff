@@ -8,8 +8,9 @@
              
 -->
 
-<!-- More info (static property): 
-                To call a static property from a child class, use the 'parent' keyword inside the child class
+<!-- More info (static method):
+                               Static methods can also be called from methods in other classes.
+                               To do this, the static method should be public
 -->
 
 <!--
@@ -25,32 +26,29 @@
 </head>
 <body>
 <?php
-/**EXAMPLE: accessing astatic property from a child class*/
+/**EXAMPLE: accessing static methods from other classes*/
 
-class pi {
-  public static $value = 3.1416;
-}
-
-//child class
-class x extends pi {
-  public function xStatic() {
-    return parent::$value;
+class greeting {
+  public static function welcome() {
+    echo "Hello World!";
   }
 }
-// Get value of static property directly via child class
-echo x::$value;
 
-echo "<br>";
+class SomeOtherClass {
+  public function message() {
+    greeting::welcome();
+  }
+}
 
-// or get value of static property via xStatic() method
-$x = new x();
-echo $x->xStatic();
+$obj = new SomeOtherClass();
+$obj -> message();
 
 ?>
 </body>
 </html>
 
 <!-- 
+  must create an instance of the 2nd class and then access the static method
 -->
 
 <!-- 
