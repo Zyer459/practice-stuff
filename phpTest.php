@@ -8,20 +8,13 @@
              
 -->
 
-<!-- 
-  Syntax: static methods
-        class ClassName {
-  public static function staticMethod() {
-    echo "Hello World!";
-  }
-}
+<!-- More info: 
+                A class can have both static and non-static methods & properties.
+                A static method/property can be accessed from a method in the same class
+                using the 'self' keyword and double colon (::)
 -->
 
 <!--
-  Syntax: static property
-         class ClassName {
-  public static $staticProp = "Hello world";
-}
 -->
 
 <!DOCTYPE html>
@@ -34,42 +27,43 @@
 </head>
 <body>
 <?php
-/**EXAMPLE: static method*/
+/**EXAMPLE: accessing static methods in the same class*/
 
 class greeting {
-  public static function welcome() {
-    echo "Hello World!";
+  public static function Welcome () {
+    echo "Hello world";
+  }
+
+  public function __construct () {
+    self::Welcome();
+  }
+}
+new greeting();
+
+/**Example: accessing static properties in same class */
+
+class pi {
+  public static $value=3.14159;
+  public function staticValue() {
+    return self::$value;
   }
 }
 
-// Call static method
-greeting::welcome();
-
-/**Example: static property */
-
-class pi {
-  public static $value = 3.1416;
-}
-
-//get static property
-echo pi::$value;
+$pi = new pi();
+echo $pi->staticValue();
 
 ?>
 </body>
 </html>
 
 <!-- 
-  Example Explained static method:
-                     Here, we declare a static method: welcome().
-                     Then, we call the static method by using the class name,
-                     double colon (::), and the method name (without creating an instance of the class first).
+  accessing static properties is different from accessing static methods
+
+  to access static property first assign the class to an object
+  then access the function through the obj
 -->
 
 <!-- 
-   Example Explained static property:
-                      Here, we declare a static property: $value.
-                      Then, we echo the value of the static property by using the class name,
-                      double colon (::), and the property name (without creating a class first).
 -->
 
 <!-- 
